@@ -7,11 +7,12 @@ public class Ex1_Variable {
 		System.out.println(10);
 		System.out.println(3.14);
 		System.out.println("홍길동");
+		// *변수* : 프로그램에서 데이터를 저장하기 위해 메모리 공간에 이름을 부여한 것
 		// sysout은 출력하는 것이지 정보를 담지 않음.
 		// 정보값을 저장하려면 변수를 만들어야 함
 		
 		int age; // 변수 선언 (int : 정수 타입)
-		age = 10; // 변수 초기화(=초기 값 설정) : 변수 age에 10을 대입
+		age = 10; // 변수 초기화(=초기 값 설정, initialize) : 변수 age에 10을 대입
 
 		// 프로그래밍 언어에서 =는 우변의 값을 좌변에 대입하겠다라는 의미(방향성이 있음)
 		
@@ -65,7 +66,10 @@ public class Ex1_Variable {
 		// 표기법 : 카멜 표기법(userName - 변수명 권장), 스네이크 표기법(user_name - 파이썬 권장)
 		// 접두사 : 동사 + 목적어 많이 사용(ex. hasPermission, isThere)
 		
-		// byte, int, short, double 등등은 기존 자료로 복습
+		// 자료형 : 데이터의 재질과 크기
+		
+		// 정수형 : byte(1byte), short(2byte), int(4byte), double(8byte)
+		// 1byte = 8bit이고 2^(bit수)만큼 숫자 표현 범위가 정해짐(ex. byte : -128~127까지 256개의 숫자표현 가능)
 		
 		
 		
