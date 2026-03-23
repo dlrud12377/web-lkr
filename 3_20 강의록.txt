@@ -41,6 +41,7 @@ HEAD : 최신 버전을 의미. 따라서 HEAD~1은 최신 버전에서 1단계 
 폴더  -> stage -> 버전기록 -> 원격 저장소에 저장
 
 이 명령과정을 github desktop을 이용해 간단히 해결 가능
+ - github desktop의 경우 자동 add, 메시지 적고 commit 버튼 누르기, push origin 버튼 누르기로 과정을 대체
 
 
 < JAVA >
