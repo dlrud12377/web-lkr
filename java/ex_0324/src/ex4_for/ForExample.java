@@ -110,5 +110,7 @@ public class ForExample {
 		
 		System.out.println("총 짝수의 개수 : " + count + "개");
 		
+		
+		
 	}
 }
