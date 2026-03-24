@@ -1,0 +1,38 @@
+package ex3_switch;
+
+public class NoBreakExample {
+	public static void main(String[] args) {
+		int time = 8;
+		
+		switch(time) 
+		{
+		case 8 : 
+			System.out.println("출근합니다.");
+		case 9 : 
+			System.out.println("회의를 합니다.");
+		case 10 : 
+			System.out.println("업무를 봅니다.");
+		default : 
+			System.out.println("외근을 나갑니다.");
+		}
+		
+		// break가 없을 경우, 일치하는 케이스 이후로 모든 케이스가 실행됨
+		
+		char grade = 'B';
+		
+		switch(grade) 
+		{
+		case 'A':
+		case 'a' : 
+			System.out.println("우수 회원입니다."); // A, a 두 경우 모두 한번에 진행됨
+			break;
+		case 'B':
+		case 'b' : 
+			System.out.println("일반 회원입니다."); // B, b 두 경우 모두 한번에 진행됨
+			break;
+		default : 
+			System.out.println("비회원 손님입니다."); 
+			break;
+		}
+	}
+}
