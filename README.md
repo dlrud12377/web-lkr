@@ -8,8 +8,14 @@
     - 하위 목록
        -하위의 하위 목록
 
- ```
+\`\`\` : 코드 작성가능
+
+ ```java
 System.out.println("Hello Java");
+ ```
+
+ ```c
+ printf("%d",100);
  ```
 
 작성법 youtube : https://www.youtube.com/watch?v=fF8BlWv8W10&t=59s
