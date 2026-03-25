@@ -18,4 +18,4 @@ System.out.println("Hello Java");
  printf("%d",100);
  ```
 
-작성법 youtube : https://www.youtube.com/watch?v=fF8BlWv8W10&t=59s
+작성법 youtube : https://www.youtube.com/watch?v=fF8BlWv8W10
