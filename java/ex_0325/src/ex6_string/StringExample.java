@@ -76,9 +76,17 @@ public class StringExample {
 		//contains("문자열");
 		System.out.println(subject.contains("자바"));
 		
+		// 8. toLowerCase(), toUpperCase : 알파벳 소문자/대문자로 변환한 새로운 문자열 리턴
+		
+		// 9. trim() : 앞뒤 공백을 제거한 새로운 문자열 리턴
+		
+		// 10. ValueOf(int i) or ValueOf(double d) : 기본 타입 값을 문자열로 리턴
+		
 		
 		// Q1. 키보드에서 알파벳을 무작위로 입력받는다.
 		// 입력받은 문자열에서 소문자 a가 몇 개 있는지 판별하는 코드 작성하기
+		// 앞뒤 a 있는지 확인 한번씩 하고, split('a') 이용해서 나눠진 개수 확인
+		// a~a~a : 3개(쪼개진 덩어리 수 - 1 + (앞뒤 a 개수)) - 이걸로 문제 내야징
 
 		
 		// Q1 - 1. CharAt 활용하기
