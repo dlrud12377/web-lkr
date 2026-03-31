@@ -9,15 +9,9 @@ public class Ballpen extends Pen {
 //	- 볼펜의 색을 나타내는 color필드를 가진다.
 	
 
-
-	// field
-    private int amount; //남은 양
     private String color; //볼펜의 색
-    
-	public Ballpen(int amount, String color) {
-		super(amount);
-		this.color = color;
-	}
+    // amount는 상속받음
+
 	
 
     // getter setter    
@@ -28,4 +22,6 @@ public class Ballpen extends Pen {
     public void setColor(String color){
     	this.color = color;
     	}
+    
+    // amount의 getter setter는 상속으로 이미 있는 상태
 }

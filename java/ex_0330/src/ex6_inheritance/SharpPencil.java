@@ -9,21 +9,10 @@ public class SharpPencil extends Pen {
 	
 		//field
 	    private int width; //펜의 굵기
-	    private int amount; //남은 량
-	    
-	    public SharpPencil(int amount, int width) {
-	    	super(amount);
-	    	this.width = width;
-	    }
+	    // amount 필드 상속
 	    
 	    // getter setter
-	    public int getAmount(){
-	    	return amount;
-	    	}
-	    
-	    public void setAmount(int amount){
-	    	this.amount = amount;
-	    	}
+	    // amount의 getter setter는 상속
 
 		public int getWidth() {
 			return width;
