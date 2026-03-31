@@ -2,7 +2,7 @@ package assignment;
 
 import java.util.Scanner;
 
-public class LowerCaseProblem {
+public class Number3_LowerCaseProblem {
 	public static void main(String[] args) {
 //		1. 영어 문장을 하나 입력받고, 이 문장의 모음의 개수를 센 뒤, 모음이 단어마다 몇 개 들어있는지 확인하는 코드를 작성하시오.
 //	    	(1). toCharArray(), toLowerCase(), split(’ ’)을 이용하는 것이 좋습니다.

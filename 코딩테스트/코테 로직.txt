@@ -1,0 +1,18 @@
+코테 로직
+PCCE 기출문제 Q10
+A
+
+i,j
+
+정사각형 사이즈 확인 ->제일 왼쪽 위의 점 기준으로 i~ i+(n-1) / j~j+(n-1)
+			     
+
+for mats 사이즈 중에서
+(i, j), .... (i+(n-1), j+(n-1))... -> -1이 아니면
+isflag = false 유지 & continue -> 다음 중심점으로 넘어가기
+
+만약 isflag = true가 나오면 break -> sort로 내림차순 한 mat의 가장 첫번째 true값에서 stop
+
+
+마지막 - if answer = 0 -> return -1
+ else - return answer
