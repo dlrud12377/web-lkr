@@ -44,7 +44,17 @@ public class MemberService {
 				e.printStackTrace();
 			}
 		}
-		
-		
+	} // method end
+	
+	// 성인인지 아닌지 판단하는 checkAdult() 메서드 만들기
+	// 20살 이상이면 "성인 회원입니다."
+	// 아니면 "미성년 회원입니다."
+	public void checkAdult(Member member) {
+		if (member.getAge() >= 20) {
+			System.out.println("성인 회원입니다.");
+		}
+		else {
+			System.out.println("미성년 회원입니다.");
+		}
 	}
 }
