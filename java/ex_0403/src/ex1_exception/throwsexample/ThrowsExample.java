@@ -15,6 +15,7 @@ public class ThrowsExample {
 	public static void findClass() throws ClassNotFoundException
 	{
 		// java.lang.String2 클래스를 찾아서 메모리에 올리는 기능
-		Class.forName("java.lang.String2");
+		Class.forName("java.lang.String2"); 
+		// 하지만 해당 내용에 부합하는 클래스가 존재하지 않음 -> 오류 발생
 	}
 }
