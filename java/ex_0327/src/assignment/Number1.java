@@ -2,6 +2,7 @@ package assignment;
 
 import java.util.Scanner;
 
+
 public class Number1 {
 	public static void main(String[] args) {
 		//Q1. 키보드에서 입력받아 연속된 문자를 문자+개수 형태로 압축하기.

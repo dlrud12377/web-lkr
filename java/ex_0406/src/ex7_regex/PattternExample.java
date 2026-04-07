@@ -49,7 +49,7 @@ public class PattternExample {
 //			System.out.println("잘못된 날짜입니다.");
 //		}
 		
-		// 숫자만 입력되었는지 검사
+		// Q2. 숫자만 입력되었는지 검사
 		// 문자열이 숫자로만 이루어져 있는지 검사하는 코드
 		// "12345"는 통과
 		// "12a45"는 실패
@@ -71,7 +71,7 @@ public class PattternExample {
 		System.out.println(result);
 
 		
-		// 영어 소문자로 시작
+		// Q3. 영어 소문자로 시작
 		// 영어 소문자 + 숫자만 허용
 		// 5 ~ 12자
 		
@@ -82,7 +82,7 @@ public class PattternExample {
 		
 		System.out.println(result);
 		
-		// 이메일 형식 검사
+		// Q4. 이메일 형식 검사
 		// 아이디부분 : 영문, 숫자, _ 까지 허용
 		// 도메인 포함(@, ., com or net or ai)
 		
@@ -96,5 +96,29 @@ public class PattternExample {
 		
 		// xn을 제외? - 진짜 규정에 맞춰서 만들어보고싶은데
 		// 두글자를 한번에 체크해야 하는 경우에는 어려운듯..
+		
+		// Q5. 숫자만 들어있는 문자열 골라내기
+		
+		String[] arr = {"123", "abc", "4567", "a1b2"};
+		
+		regExp = "[0-9]{1,}"; // "[0-9]+"도 같은 의미
+		for (String source : arr) {
+			if (Pattern.matches(regExp, source)) {
+				System.out.println(source);
+			}
+		}
+		
+		// Q6. 2~5글자의 한글 문자열만 찾아 출력
+		
+		String[] arr2 = {"홍길동", "Tom", "김철수", "a1", "김이박조길동"};
+		
+		regExp = "[가-힣]{2,5}";
+		
+		for (String source : arr2) {
+			if (source.matches(regExp)) {
+				System.out.println(source);
+			}
+		}
+		
 	}
 }
