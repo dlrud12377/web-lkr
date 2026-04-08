@@ -6,6 +6,7 @@ import member.Member;
 import service.MemberService;
 
 public class Main {
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		
 		// 이름 나이 입력받기(Scanner 임포트)
