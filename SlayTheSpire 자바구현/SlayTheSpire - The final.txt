@@ -1,0 +1,22 @@
+SlayTheSpire - The final
+
+생각해볼 객체
+
+<Character> - playable, monster(non-playable)
+
+https://namu.wiki/w/Slay%20the%20Spire/%EB%AA%AC%EC%8A%A4%ED%84%B0
+
+<
+
+	공통 메서드 : attack, defense, vulnerable, weakness, strength, 
+
+Ironcled
+
+silent
+
+detect
+
+
+
+
+Architect - hidden
