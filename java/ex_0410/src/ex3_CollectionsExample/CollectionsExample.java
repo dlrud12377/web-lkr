@@ -63,7 +63,7 @@ public class CollectionsExample {
 		Collections.shuffle(numbers3);
 		System.out.println(numbers3); // [13, 7, 4, 6, 11, 2, 12, 3, 9, 10, 5, 8, 1] - random
 		
-		// 이걸로 인디언홀덤, 원카드, 
+		// 이걸로 인디언홀덤, 원카드 등등 만들 수 있을듯
 		
 		// 최대값, 최소값
 		// max(), min() - for문 돌릴 시간 줄어듦
