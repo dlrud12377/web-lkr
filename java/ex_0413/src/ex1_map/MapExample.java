@@ -110,9 +110,11 @@ public class MapExample {
 		// 12. 키에 대응하는 값이 없을때만 key-value쌍을 맵에 저장
 		// putIfAbsent(K key, V value)
 		
-		// 13.replaceAll
+		// 13.replaceAll - String값을 받기 때문에 정규표현식까지 활용 가능
 		
-		// 14. replace
+		// 14. replace - CharSequence값을 받기 때문에 교체가 번거로움. 단순 작업에는 좋음
+		
+		// 15. values() - value값들을 List형식으로 반환
 		
 		
 	}
