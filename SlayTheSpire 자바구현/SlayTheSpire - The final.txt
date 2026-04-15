@@ -6,15 +6,23 @@ SlayTheSpire - The final
 
 https://namu.wiki/w/Slay%20the%20Spire/%EB%AA%AC%EC%8A%A4%ED%84%B0
 
-<
+<playable Character>
 
-	공통 메서드 : attack, defense, vulnerable, weakness, strength, 
+	공통 메서드 : attack, defense, vulnerable, weakness, strength, draw, discard, exclude
 
-Ironcled
+Ironcled 
 
-silent
+카드 시스템 : 
 
-detect
+Silent
+
+Detect
+
+Regent
+
+NecroBinder
+
+Watcher
 
 
 

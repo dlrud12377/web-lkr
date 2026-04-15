@@ -22,15 +22,11 @@ public class ProductService {
 	BiPredicate<Product, String> isSame = (p,q) -> p.getCode().equals(q);
 	
 	public void addProduct(Product product) {
-		
-		for (Product p : list) {
-			if (isSame.test(p, product.getCode())) {
-				System.out.println("이미 존재하는 상품 코드입니다.");
-				return;
-			}
+		if (findByCode(product.getCode()) != null) { // list 내 코드가 매개변수 product의 code와 겹치면
+			System.out.println("이미 존재하는 상품 코드입니다.");
+			return; // 추가하지 않고 종료
 		}
-		
-		list.add(product);
+		list.add(product); // 종료가 안됐으면 추가
 		System.out.println("상품이 추가되었습니다!");
 
 	}

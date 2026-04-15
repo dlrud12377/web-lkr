@@ -1,6 +1,6 @@
 package ex3_collection.exam;
 
-import java.lang.reflect.Constructor;
+import java.util.function.Predicate;
 
 public class Product {
 	// 필드 - private, 생성자 통해 값을 초기화
@@ -8,6 +8,8 @@ public class Product {
 	private String name;
 	private int price;
 	private int stock;
+	
+	Predicate<Integer> negative = x -> x < 0;
 	
 	// 생성자
 	public Product(String code, String name, int price, int stock) {
@@ -32,7 +34,12 @@ public class Product {
 	}
 	
 	public void setPrice(int price) {
-		this.price = price;
+		if (negative.test(price)) {
+			this.price = 0;
+		}
+		else {
+			this.price = price;
+		}
 	}
 	
 	public int getStock() {
@@ -40,16 +47,22 @@ public class Product {
 	}
 	
 	public void setStock(int stock) {
-		this.stock = stock;
-	} 
+		if (negative.test(stock)) {
+			this.stock = 0;
+		}
+		else {
+			this.stock = stock;
+		}
+	}
+
 	
 	// toString 오버라이딩
 	@Override
 	public String toString() {
-		return String.format("Product { code = %s,"
-				+ " name = %s,"
+		return String.format("Product{code = %s,"
+				+ " name = '%s',"
 				+ " price = %d,"
-				+ " stock = %d"
+				+ " stock = %d}"
 				, code, name, price, stock);
 	}
 	
