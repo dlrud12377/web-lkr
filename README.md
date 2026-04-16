@@ -94,3 +94,63 @@ System.out.println("Hello Java");
     - 문제점 2 : 위 내용대로 진행했을 때, 정수의 덧셈임에도 불구하고 합이 실수 상태로 나오게 됨.
     
       -> 이를 해결하기 위해 list 내 첫번째 값의 타입을 파악하고, 그 타입이 리스트 전체의 타입과 같으므로 정수의 경우 sum의 값을 int로 type-casting 해주었음.
+
+## 4/15
+### 오늘의 애로사항
+
+   ```java
+      		boolean isPalindrome = true;
+		
+		File f = new File("file.txt");
+		byte[] notepad = new byte[(int)f.length()];
+		
+		try {
+			f.createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+      		// palindrome 회문
+		try {
+			FileInputStream fis = new FileInputStream(f);
+			fis.read(notepad);
+			
+			System.out.println(Arrays.toString(notepad));
+			// 걍 byte 상태로는 정보 다루기가 불가능한듯
+			
+			String noteDetail = new String(notepad);
+			
+			fis.close();
+			
+			if (noteDetail == null) {
+				System.out.println("파일 내용이 없습니다.");
+				return;
+			}
+         ```
+
+   - 문제점 : 회문(Palindrome) 판단을 위한 코드를 짜던 와중에, 읽기 위해 byte로 받은 내용을 비교하기 위해 String으로 바꾼 후 작업을 진행했었는데, 바이트에도 일정한 유니코드가 있으니 바이트 배열의 앞뒤를 비교해도 괜찮을 것이라 생각했다.
+      -> 하지만 바이트의 특성상 한글의 경우 2바이트인 상황이고, 추가로 오버플로우가 일어나 유니코드가 엉망이 되어버렸고, 검사를 제대로 할 수 없는 상황이 되었다.
+      
+   - 해결 : byte 단계에서 비교할 방법을 찾기 위해 unsigned byte를 확인해 보았으나, java에서는 기본 제공 기능이 아니고 쓰는 코드가 오히려 번거로웠기 때문에 String으로 해결을 했다.
+
+   - 뒤의 코드
+      ```java
+      			else {
+				for (int i = 0; i < noteDetail.length() / 2; i++) {
+					if (noteDetail.charAt(i) != noteDetail.charAt((noteDetail.length()-1)-i)) {
+						isPalindrome = false;
+						break;
+					}
+				}
+			}
+			
+			if (isPalindrome) {
+				System.out.println(noteDetail + "은 회문입니다.");
+			}
+			else {
+				System.out.println(noteDetail + "은 회문이 아닙니다.");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+```

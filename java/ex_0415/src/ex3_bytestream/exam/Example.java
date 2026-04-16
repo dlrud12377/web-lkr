@@ -61,10 +61,8 @@ public class Example {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			return;
 		}
 		
 	}
 	
-	// 왜 결과가 반대로 나오지? -> 배열이 이상함
 }
