@@ -5,7 +5,7 @@ public interface Character {
 	static final int NORMAL_ATTACK_DAMAGE = 6;
 	static final int NORMAL_DEFENSE_SHIELD = 6;
 	
-	void attack();
+	void attack(NonPlayable monster);
 	
 	void defense();
 	

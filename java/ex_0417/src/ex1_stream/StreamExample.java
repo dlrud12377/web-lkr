@@ -82,5 +82,7 @@ public class StreamExample {
 		// random(난수생성)
 		int rand = new Random().nextInt(45) + 1; // 1~45까지의 랜덤난수
 		
+		System.out.println(rand);
+		
 	}
 }
