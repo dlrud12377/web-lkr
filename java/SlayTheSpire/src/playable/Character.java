@@ -1,17 +1,19 @@
 package playable;
 
+import nonplayable.Monster;
+
 public interface Character {
 	
 	static final int NORMAL_ATTACK_DAMAGE = 6;
 	static final int NORMAL_DEFENSE_SHIELD = 6;
 	
-	void attack(NonPlayable monster);
+	void attack(Monster monster, int damage);
 	
 	void defense();
 	
 	void vulnerable(int vulnerable);
 	
-	void weekness(int weekness);
+	void weakness(int weakness);
 	
 	void strength(int strength);
 	
