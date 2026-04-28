@@ -1,0 +1,38 @@
+명령어만 정리
+
+테이블 만들기
+
+create table [if not exists] 테이블명 (
+	컬럼명 변수타입,
+	[컬럼명 변수타입,]
+);
+
+in-line 제약조건 주기
+변수명 변수타입 primary key
+장점 : pk와 같이 겹치지 않는 간단한 제약조건 주기 좋음
+단점 : 여러 칼럼 한번에 제약 불가, 이름 자동생성으로 인해 수정 삭제가 어려움
+
+constraint 제약조건 주기
+constraint 제약조건명 제약조건(제약조건을 걸 칼럼들)
+
+테이블, 유저, 컬럼
+ -> drop으로 없애기
+
+그 외 데이터의 경우
+ -> delete로 없애기
+
+칼럼 추가, 삭제, 변경 등등 테이블을 변경해야 되면 alter table 붙이기
+
+	1. 칼럼  추가/삭제하기
+		- alter table 테이블명 add column 컬럼명 변수타입[, 컬럼명 변수타입...];
+
+	2. 칼럼 삭제하기
+		- alter table 테이블명 drop column 컬럼명;
+
+	3. 칼럼명 변경하기
+		- alter table 테이블명 rename column 이전 칼럼명 to 바꿀 칼럼명;
+
+	4. 칼럼의 타입 변경하기
+		- alter table 테이블명 modify column 컬럼명 바꿀 타입;
+
+	5. 제약조건 - not null, unique는 칼럼의 속성으로 분류되어 바꿀 때 modify를 씀
