@@ -109,7 +109,7 @@
 			** BCNF(Boyce-Codd Normal Form)
 			- 제 3정규형을 좀 더 엄격하게 적용한 정규형
 			- 모든 함수적 종속에서 결정자는 반드시 후보키여야 한다.
-				** 결정자 : 관계형 데이터에비으세어 다른 속성의 값을 유일하게 결정짓는 속성들의 집합(A -> B)
+				** 결정자 : 관계형 데이터베이스에서 다른 속성의 값을 유일하게 결정짓는 속성들의 집합(A -> B)
 				** 후보키 : PK가 될 수 있는 속성
 
 			제 3정규형을 지켜도 이상 현상이 남아있을 수도 있기 때문에, 이 과정을 진행한다.
@@ -237,3 +237,25 @@ SELECT * FROM 테이블;
 				'A__' : A로 시작하고 전체 길이가 3인 값
 				'_A' : A로 끝나고 전체 길이가 2인 값
 				'_A_' : 전체 길이가 3이고 A가 정가운데 있는 값
+
+< DCL(Data Controll Language) > : 데이터 제어어
+ - 데이터베이스에서 사용자 권한을 관리하는 SQL이다.
+ - GRANT : 권한을 부여
+ - REVOKE : 권한을 회수
+
+ - DCL이 필요한 이유
+	- 모든 사용자에게 모든 권한을 주면 위험해진다.
+
+ - MySQL에서는 사용자를 다음과 같이 구분한다.
+	- '사용자명'@'접속자위치'
+	- 'teacher'@'localhost' 
+
+사용자 생성하는법
+create user '사용자명'@'접속자위치'
+identified by '비밀번호';
+
+update account set balance = balance - 1000 where id = 1;
+update account set balance = balance + 1000 where id = 2;
+
+commit
+- 작업을 최종 확정하는 것을 의미함

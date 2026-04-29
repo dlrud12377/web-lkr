@@ -1,5 +1,20 @@
 명령어만 정리
 
+데이터베이스 만들기
+CREATE database IF NOT EXISTS academy_db
+character set = utf8mb4
+collate = utf8mb4_unicode_ci;
+
+의미
+CHARACTER SET
+이 데이터에서 문자를 저장할 기본 문자셋(Encoding)을 지정
+utf8mb4가 MySQL에서 가장 안전한 유니코드 문자셋이다.
+
+COLLATE
+정렬과 비교의 기준을 설정
+
+
+
 테이블 만들기
 
 create table [if not exists] 테이블명 (
@@ -35,4 +50,13 @@ constraint 제약조건명 제약조건(제약조건을 걸 칼럼들)
 	4. 칼럼의 타입 변경하기
 		- alter table 테이블명 modify column 컬럼명 바꿀 타입;
 
-	5. 제약조건 - not null, unique는 칼럼의 속성으로 분류되어 바꿀 때 modify를 씀
+	5. not null, unique는 칼럼의 속성으로 분류되어 바꿀 때 modify를 씀
+
+	6. 제약조건 추가하기
+		- alter table add 제약조건 (대상컬럼);
+
+	7. 제약조건 삭제하기
+		- alter table drop 제약조건
+
+	8. 테이블에 걸린 제약조건 보기
+		- show index from 테이블명;
