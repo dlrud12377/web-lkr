@@ -1,0 +1,31 @@
+시험 관련 범위
+
+DDL 테이블 만들기
+
+DML
+
+SELECT 조회할 컬럼
+FROM 테이블
+WHERE 필터조건
+GROUP BY 묶는 기준
+HAVING 집계함수 포함 필터조건
+ORDER BY 정렬기준 (ASC, DESC)
+
+
+INSERT INTO 
+
+
+UPDATE
+DELETE
+
+집계함수( SUM, COUNT, MIN, AVG, MAX)
+ ㄴ GROUP BY, HAVING 등등
+
+INDEX
+
+SUBQUERY
+
+JOIN
+
+VIEW
+
