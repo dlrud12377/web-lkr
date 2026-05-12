@@ -1,9 +1,15 @@
 시험 관련 범위
 
-DDL 테이블 만들기
+< DDL (데이터베이스 객체에 대한 조작) >
+CREATE, DROP, ALTER
+ - TABLE
+ - VIEW
+ - INDEX
+ - DATABASE
 
-DML
+< DML (데이터에 대한 조작) >
 
+1. SELECT
 SELECT 조회할 컬럼
 FROM 테이블
 WHERE 필터조건
@@ -11,21 +17,32 @@ GROUP BY 묶는 기준
 HAVING 집계함수 포함 필터조건
 ORDER BY 정렬기준 (ASC, DESC)
 
-
+2. INSERT
 INSERT INTO 
 
-
+3. UPDATE
 UPDATE
+
+4. DELETE
 DELETE
 
 집계함수( SUM, COUNT, MIN, AVG, MAX)
- ㄴ GROUP BY, HAVING 등등
+ ㄴ GROUP BY(그룹별 집계), HAVING(그룹함수에 대해 조건 걸 때)
 
-INDEX
+< INDEX >
+ - 개념 : SELECT를 빠르게 하기 위해 책갈피를 꽂아놓는 느낌으로 사용됨
+ - 어디서 사용하면 좋은가 : WHERE, ORDER BY -> 데이터의 변화는 없고, 조건별 조회를 자주 하는 데이터베이스에서 사용하기 좋음
+ - 데이터가 너무 적으면 의미가 없음
+ - 만들기 -> 객체이므로 CREATE INDEX ~
+ - 삭제 -> DROP INDEX?
 
-SUBQUERY
+ < SUBQUERY >
+ - 개념 : 액자식으로 구성된 쿼리문
+ - SELECT절, FROM절 등등 다양하게 사용 가능
 
-JOIN
+< JOIN >
+ - 개념 : 관계를 맺고 있는 두 테이블에서 데이터를 조회하려고 할 때 사용
+ - INNER JOIN, (LEFT/RIGHT) OUTER JOIN, CROSS JOIN
 
-VIEW
-
+< VIEW >
+ - 개념 : 복잡한 쿼리문의 결과를 저장하는 가상의 테이블

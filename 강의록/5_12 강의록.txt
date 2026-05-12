@@ -1,0 +1,93 @@
+ < 5/12 강의록 >
+
+ < 복습 >
+
+< CASE >
+ - 개념 : 조건에 따라 다른 값을 반환하는 문법
+
+CASE
+	WHEN 조건1 THEN 결과1
+	WHEN 조건2 THEN 결과2
+	ELSE 기본결과
+END
+
+이때 CASE가 범위가 아니라 지정된 대상(IN의 개념)이면 CASE 앞에 조건 대상 컬럼을 넣어줌
+CASE COLUMN
+	WHEN 조건1 THEN 결과1
+	WHEN 조건2 THEN 결과2
+	ELSE 기본결과
+END
+
+ - CASE문은 SELECT절에서 많이 사용됨
+ - ORDER BY절에서 사용 가능 -> 비즈니스 로직 기준 정렬(업무 우선순위(PRIORITY), 처리 순서, 긴급도)
+ - GROUP BY에서도 사용 가능
+ - UPDATE 쪽에서도 사용 가능 -> 조건에 맞게 데이터를 수정 가능
+
+반복문
+ - 같은 작업을 여러번 반복 실행할 때 사용
+ - 프로시저 안에서만 작성 가능
+
+WHILE : 가장 일반적인 반복문. 자바 WHILE과 사용법 동일(형식만 차이 있음)
+BEGIN
+WHILE
+변수 선언
+WHILE 조건 DO
+	반복실행문;
+	SET으로 조건변수값 변경
+END WHILE;
+END
+
+
+REPEAT : DO-WHILE과 사용법이 같음
+REPEAT
+	반복실행할 명령;
+
+UNTIL 조건; -> 조건이 참이 되면 종료(~가 참이 될 때 '까지' 실행)
+END REPEAT;
+
+
+LOOP : 무한루프 기반, 종료조건을 명시해야 한다.
+ - 라벨을 달아야 함
+
+LABEL : LOOP
+	반복 실행할 문장;
+	IF 조건 THEN
+		LEAVE LABEL;
+	END IF;
+END LOOP;
+
+ITERATE -> CONTINUE
+ - 현재 반복을 중단하고 다음 반복으로 바로 이동하는 명령어
+LABEL : LOOP
+	IF 조건 THEN
+		ITERATE LABEL;
+	END IF;
+END LOOP;
+
+
+ < MySQL의 예외처리 >
+ - Handler
+	- Procedure 안에서 에러, 경고, 조회 결과 없음 같은 상황을 처리하는 예외처리 문법
+	- 프로시저 실행중 문제가 생겼을 때 프로시저가 바로 중단되지 않도록 처리 방법을 정해두는 문법
+
+ 에러 처리 : 중복된 PK를 INSERT한 경우
+ 조회 결과 없음 처리 : SELECT ... INTO의 결과가 없는 경우
+ 커서 종료 처리 : 더 이상 읽을 데이터가 없는 경우
+	ㄴ CURSOR : SELECT 결과를 한 줄 씩 꺼내서 처리하는 기능
+ 경고 처리 : 데이터 잘림, 형 변환 경고 등
+
+ 기본 문법
+ DECLARE 핸들러타입 HANDLER FOR 예외
+ BEGIN
+ 예외처리
+ END;
+
+핸들러 타입 종류
+CONTINUE : 에러 처리 후 다음 문장 계속 진행
+EXIT : 에러 처리 후 BEGIN - END 블록 종료
+
+예외 종류
+SQLEXCEPTION : 대부분의 SQL 에러
+SQLWARNING : SQL 경고
+NOT FOUND : 조회 결과 없음
+MySQL 에러코드 : 1062(중복 pk 에러)
