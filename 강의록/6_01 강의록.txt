@@ -559,6 +559,7 @@ END;
 
 
  (4). DEL - 현재 줄을 삭제한다.
+
  현재 버퍼
  SELECT * 
  FROM MEMBER 
@@ -606,7 +607,9 @@ END;
  2 FROM MEMBER
  3 WHERE member_id = 1
 
- (6). RUN - 버퍼 내용을 출력한 후 실행한다.
+ 3. 실행 명령어
+
+ (1). RUN - 버퍼 내용을 출력한 후 실행한다.
  sql > RUN
  1 SELECT *
  2 FROM MEMBER -- 버퍼 내용
@@ -624,7 +627,7 @@ END;
  3	END;
  4	/ -- 위의 내용이 바로 실행됨
 
- START - SQL 파일 실행
+ (3). START - SQL 파일 실행
  SQL > START member.sql
 
  SET SERVEROUTPUT - PL/SQL 출력 결과를 표시한다.
