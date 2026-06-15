@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>이경락</h1>
+        <nav>
+            <a href="#about">소개</a>
+            <a href="#technique">기술</a>
+            <a href="#projects">프로젝트</a>
+            <a href="#contact">연락처</a>
+        </nav>
+    </header>
+    <br>
+    <main>
+        <!-- 섹션1 : 소개
+          - hyperlink는 header navigation의 about과 연결 -->
+        <section id="about">
+            <h2>소개</h2>
+            <p>웹 개발을 막 시작한 입문자다</p>
+            <img src = "images/profile.jpg" alt="이경락 프로필 사진" width="200px">
+            <p>첫 프로젝트를 기록 중이다</p>
+        </section>
+
+        <!-- 섹션2 : 기술
+          - hyperlink는 header navigation의 technique와 연결 -->
+        <section id="technique">
+            <h2>기술</h2>
+            <ul>
+                <li>HTML5와 시멘틱 마크업이다.</li>
+                <li>기본 CSS 선택자를 조금 안다</li>
+                <li>개발자 도구 사용을 시작한다</li>
+            </ul>
+        </section>
+
+        <!-- 섹션3 : 프로젝트
+          - hyperlink는 header navigation의 projects와 연결 -->
+        <section id="projects">
+            <h2>프로젝트</h2>
+            <!-- 프로젝트가 계속 추가될 것이므로 article 사용 -->
+            <article>
+                <h3>나의 첫 웹페이지</h3>
+                <p>시멘틱 태그와 접근성을 고려해 작성했다.</p>  
+            </article>
+
+            <time datetime="2026-06-15">2026년 6월 15일</time>
+        </section>
+
+        <!-- aside : 배운 점
+          - nav에 없는 내용이므로 aside로 적용하여 사용 -->
+        <aside>
+            <h2>배운 점</h2>
+            <p>문서 구조가 명확하면 스타일과 동작을 더 쉽게 얹을 수 있다</p>
+        </aside>
+    </main>
+    <!-- footer : 연락처 및 이메일
+      - hyperlink는 header navigation의 contact와 연결 -->
+    <footer id="contact">
+        <a href="mailto:navermen@naver.com">navermen@example.com</a>
+        <p><small>&copy; 2026 이경락이다.</small></p>
+    </footer>
+</body>
+</html>
