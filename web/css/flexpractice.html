@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flexbox{
+            display: flex;
+        }
+        header{
+            text-align: center;
+            background-color: rgb(57, 221, 92);
+        }
+        nav{
+            text-align: center;
+        }
+        ul{
+            list-style: none;
+            padding : 0
+        }
+        ul li{
+            display:inline-block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Flexbox Layout 연습</h1>
+        <nav>
+            <ul>
+            <li>홈</li>
+            <li>공지사항</li>
+            <li>문의</li>
+            </ul>
+        </nav>
+    </header>
+    <main class = "flexbox">
+        <section class = "card">
+            <h2>메인 콘텐츠</h2>
+            <p class = "section-detail">이 영역은 본문 내용을 표시하는 구역이다.<br>
+            Flexbox를 이용해 왼쪽에 배치된다.</p>
+        </section>
+        <aside class = "card">
+            
+        </aside>
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>
