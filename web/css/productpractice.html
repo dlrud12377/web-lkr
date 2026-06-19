@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            background-color: #eee;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .product-container{
+            width: 800px;
+            height: 380px;
+            display: flex;
+            border-radius: 8px;
+            background-color: white;
+            justify-content: left;
+            border: 1px solid #ddd;
+            line-height: 1.6;
+            gap: 8px;
+        }
+
+        .image{
+            width: 350px;
+            height: 350px;
+            background-color: #ddd;
+            border: none;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            color: #aaa;
+            object-fit: cover;
+        }
+
+        .product-detail{
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        p.price{
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        ul{
+            padding-left: 20px;
+        }
+
+        li::marker {
+            content: "✔ ";
+        }
+
+        ul li{
+            color: #4a8b6f;
+            font-weight: 500;
+        }
+        button {
+            width: 80px;
+            padding: 12px 8px;
+            border: none;
+            background-color: #2d6a4f;
+            color:white;
+            border-radius: 4px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="product-container">
+        <div class="image"><h2>Wireless Keyboard</h2></div>
+            <div class="product-detail">
+                <h1>무선 키보드</h1>
+                <p class="price">39,000원</p>
+                <p> 가볍고 조용한 사무용 무선 키보드입니다.</p>
+                <ul>
+                    <li>무선 연결</li>
+                    <li>조용한 키감</li>
+                    <li>긴 배터리</li>
+                </ul>
+                <button>구매하기</button>
+            </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 전체 화면
+    body를 이용하여 로그인 박스를 화면 가운데 배치한다.
+    배경색을 지정한다.
+
+    로그인 박스
+    가로 크기 : 800px
+    세로 크기 : 400px
+    배경색을 지정한다.
+    테두리를 적용한다.
+    로고 영역과 로그인 영역이 가로 방향으로 배치되도록 한다.
+
+    로고 영역
+    로고 이미지를 표시한다.
+    이미지의 가로 크기를 지정한다.
+
+    width:200px;
+
+    로그인 영역
+    아이디 입력창과 비밀번호 입력창을 세로 방향으로 배치한다.
+    각 요소 사이에 적절한 간격을 적용한다.
+
+    입력창
+    가로 크기 : 200px 이상
+    아래쪽 테두리만 적용한다.
+    내부 여백을 적용한다.
+
+    로그인 버튼
+    가로 크기 : 80px 이상
+    세로 크기 : 80px 이상
+    배경색을 지정한다.
+    글자색을 지정한다.
+    테두리를 적용한다.
+    체크박스 영역
+    체크박스와 "아이디 저장" 문구를 표시한다.
+    글자 크기를 지정한다.
+    -->
+    <style>
+
+    /* login-box 중앙 정렬하기
+        vh(view height)
+        브라우저의 높이를 따라간다. */
+    body{
+        margin: 0;
+        height: 100vh;
+        background-color: rgb(240, 240, 250);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+  
+    .login-box{
+        width: 800px;
+        height: 400px;
+        display: flex;
+        gap : 8px;
+        background-color: white;
+        border-radius: 8px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-tool{
+        display: flex;
+        flex-direction: column;
+    }
+
+    input{
+        /* 클릭 시 생기는 박스 없애기 */
+        outline : none;
+    }
+
+    .login-input{
+        border:none;
+        border-bottom: 2px solid black;
+        margin: 8px;
+        padding: 3px;
+    }
+
+    .checkbox{
+        font-size: small;
+        margin: 8px;
+    }
+
+    .image{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+    }
+
+    button{
+        width: 80px;
+        height: 90px;
+        border-radius: 10px;
+        color: white;
+        border: none;
+        background-color: rgb(101, 101, 253);
+        cursor: grab;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <div class="image">
+            <img src="학원로고2.jpg" alt="회사 로고">
+        </div>
+        <div class="login-tool">
+            <input class="login-input" type="text" placeholder="아이디">
+            <input class="login-input" type="password" placeholder="비밀번호">
+            <span class="checkbox"><input type="checkbox"> 아이디 저장</span>
+        </div>
+        <div class="login-button">
+            <button>로그인</button>
+        </div>
+    </div>
+
+</body>
+</html>

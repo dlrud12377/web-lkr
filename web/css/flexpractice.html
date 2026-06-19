@@ -5,22 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        header h1{
+            align-items: center;
+            padding: 4px;
+        }
+
         .flexbox{
             display: flex;
+            gap: 16px;
         }
         header{
+            color: white;
             text-align: center;
-            background-color: rgb(57, 221, 92);
+            align-items: center;
+            background-color: #32C86E;
         }
         nav{
+            background-color: #27AE60;
             text-align: center;
         }
         ul{
             list-style: none;
-            padding : 0
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
-        ul li{
-            display:inline-block;
+        .card{
+            margin: 16px 0;
+            text-align: center;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+        }
+        body{
+            font-family: Arial, sans-serif;
+            background-color: rgb(221, 222, 233);
+        }
+
+        .f1{
+            margin-left: 8px;
+            flex : 7;
+            padding : 8px;
+        }
+
+        .f2{
+            margin-right: 8px;
+            flex : 3;
+            padding : 8px;
+            background-color: #DFE6E9;
+        }
+        footer{
+            text-align: center;
+            background-color: #32465A;
+            color: white;
+            padding: 16px;
+            margin-right: 0;
+            margin-left: 0;
         }
     </style>
 </head>
@@ -36,18 +80,19 @@
         </nav>
     </header>
     <main class = "flexbox">
-        <section class = "card">
+        <section class = "card f1">
             <h2>메인 콘텐츠</h2>
             <p class = "section-detail">이 영역은 본문 내용을 표시하는 구역이다.<br>
             Flexbox를 이용해 왼쪽에 배치된다.</p>
         </section>
-        <aside class = "card">
-            
+        <aside class = "card f2">
+            <h2>사이드바</h2>
+            <p>보조 정보나 공지사항을 표시하는 구역이다.</p>
         </aside>
     </main>
 
     <footer>
-
+        &copy; 2025 Flex Layout Practice
     </footer>
 </body>
 </html>

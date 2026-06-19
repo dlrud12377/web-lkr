@@ -5,6 +5,7 @@
             border: 3px solid black;
             margin : 6px;
             text-align: center;
+            flex-grow:0;
         }
         /* flex
         자식 요소를 내가 원하는 방향으로 정렬
@@ -125,20 +126,4 @@
 
         section{
             display: flex;
-        }
-
-        .o1{
-            order:1;
-        }
-
-        .o2{
-            order:2;
-        }
-
-        .o3{
-            order:3;
-        }
-
-        .o4{
-            order:4;
         }
