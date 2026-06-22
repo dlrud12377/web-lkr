@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        h3{
+            font-size: 16px;
+            font-weight: bolder;
+        }
+
+        body{
+            background-color: #eee;
+            font-family: Arial, sans-serif;
+            margin: 10px;
+        }
+
+        .card-container{
+            margin: 14px 4px;
+            display: grid;
+            gap: 20px;
+
+            grid-template-columns: repeat(3,1fr);
+        }
+
+        .card{
+            background: white;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            gap:16px
+        }
+
+        .detail{
+            color: #797979;
+        }
+
+        .price{
+            font-weight: bold;
+        }
+
+        button{
+            padding: 7px;
+            border: none;
+            color: white;
+            background-color: black;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h2>오늘의 추천 상품</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>무선 마우스</h3>
+            <p class="detail">가볍고 조용한 사무용 마우스</p>
+            <p class="price">29,000원</p>
+            <button>장바구니</button>
+        </div>
+
+        <div class="card">
+            <h3>기계식 키보드</h3>
+            <p class="detail">타건감이 좋은 입문용 키보드</p>
+            <p class="price">79,000원</p>
+            <button>장바구니</button>
+        </div>
+
+        <div class="card">
+            <h3>노트북 거치대</h3>
+            <p class="detail">자세 교정에 좋은 알루미늄 거치대</p>
+            <p class="price">35,000원</p>
+            <button>장바구니</button>
+        </div>
+
+        <div class="card">
+            <h3>USB 허브</h3>
+            <p class="detail">노트북 확장에 필요한 5포트 허브</p>
+            <p class="price">22,000원</p>
+            <button>장바구니</button>
+        </div>
+
+        <div class="card">
+            <h3>웹캠</h3>
+            <p class="detail">온라인 수업과 회의에 적합한 웹캠</p>
+            <p class="price">45,000원</p>
+            <button>장바구니</button>
+        </div>
+
+        <div class="card">
+            <h3>모니터 받침대</h3>
+            <p class="detail">책상을 깔끔하게 정리할 수 있는 받침대</p>
+            <p class="price">16,000원</p>
+            <button>장바구니</button>
+        </div>
+
+    </div>
+</body>
+</html>

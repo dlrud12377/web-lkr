@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background: #eee;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .header{
+            background: white;
+            border-bottom: 1px solid gray;
+        }
+
+        .header-inner{
+            display: flex;
+            max-width: 1000px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo{
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .menu{
+            display: flex;
+            gap: 20px;
+
+        }
+
+        .menu a{
+            text-decoration: none;
+            color: darkgray;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            max-width: 1000px;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .banner{
+            background: black;
+            color: white;
+            margin-bottom: 20px;
+            padding: 40px;
+            border-radius: 8px;
+            line-height: 2.0;
+            width: 85%;
+        }
+
+        .products{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .product{
+            background: white;
+            border: 1px solid rgb(202, 202, 202);
+            padding: 20px;
+            border-radius: 8px;
+            line-height: 2.0;
+        }
+
+        .product-image{
+            height: 130px;
+            background-color: #DDD;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            line-height: 130px;
+            text-align: center;
+            color: #585858;
+        }
+
+        .price{
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .button{
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(133, 133, 255);
+            border: none;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .footer{
+            text-align: center;
+            background-color: lightgray;
+            padding: 25px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">ShopLogo</div>
+            <nav class="menu">
+                <a href="#">신상품</a>
+                <a href="#">베스트</a>
+                <a href="#">세일</a>
+                <a href="#">고객센터</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="banner">
+            <h2>오늘의 특가 상품</h2>
+            <p>인기 상품을 특별한 가격으로 만나보세요.</p>
+        </section>
+        <section class="products">
+            <article class="product">
+                <div class="product-image">상품 이미지</div>
+                <h2>무선 마우스</h2>
+                <p>조용하고 가벼운 사무용 마우스</p>
+                <p class="price">9,000원</p>
+                <button class="button">구매하기</button>
+            </article>
+
+            <article class="product">
+                <div class="product-image">상품 이미지</div>
+                <h2>기계식 키보드</h2>
+                <p>입문자에게 좋은 키보드</p>
+                <p class="price">79,000원</p>
+                <button class="button">구매하기</button>
+            </article>
+
+            <article class="product">
+                <div class="product-image">상품 이미지</div>
+                <h2>노트북 거치대</h2>
+                <p>목과 어깨 부담을 줄여줍니다.</p>
+                <p class="price">35,000원</p>
+                <button class="button">구매하기</button>
+            </article>
+
+            <article class="product">
+                <div class="product-image">상품 이미지</div>
+                <h2>USB 허브</h2>
+                <p>노트북 포트를 확장합니다.</p>
+                <p class="price">22,000원</p>
+                <button class="button">구매하기</button>
+            </article>
+
+            <article class="product">
+                <div class="product-image">상품 이미지</div>
+                <h2>웹캠</h2>
+                <p>화상회의와 온라인 수업에 적합합니다.</p>
+                <p class="price">5,000원</p>
+                <button class="button">구매하기</button>
+            </article>
+
+            <article class="product">
+                <div class="product-image">상품 이미지</div>
+                <h2>모니터 받침대</h2>
+                <p>책상 공간을 깔끔하게 정리합니다.</p>
+                <p class="price">18,000원</p>
+                <button class="button">구매하기</button>
+            </article>
+        </section>
+    </div>
+
+    <footer class="footer">
+        Copyright 2026 ShopLogo
+    </footer>
+</body>
+</html>

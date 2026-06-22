@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #F4F4F4;
+        }
+
+        .layout{
+            display: grid;
+            padding: 10px;
+            gap: 8px;
+
+            grid-template:
+                "header header header" 180px
+                "nav main aside" 300px
+                "footer footer footer" 60px
+                /180px 1fr 220px;
+        }
+
+        .header{
+            display: flex;
+            flex-direction: column;
+            grid-area: header;
+            background-color: #263238;
+            color: white;
+            padding:16px;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .nav{
+            background-color: white;
+            grid-area: nav;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            border: 1px solid #ddd;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav button{
+            padding: 12px;
+            border: none;
+            text-align: left;
+            border-radius: 8px;
+            width: 80%;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .aside{
+            display: flex;
+            flex-direction: column;
+            background-color: #FFF8E1;
+            grid-area: aside;
+            padding: 16px;
+            line-height: 2.0;
+            border: 1px solid #ddd;
+        }
+
+        .aside h2{
+            margin-top: 8px;
+        }
+
+        .main{
+            background-color: white;
+            grid-area: main;
+            line-height: 2.0;
+            padding: 16px;
+            border: 1px solid #ddd;
+        }
+
+        .footer{
+            display: flex;
+            background-color: white;
+            grid-area: footer;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <header class="header">
+            <h1>ABC 소프트웨어</h1>
+            <p>기업용 웹 시스템을 개발하는 IT 회사입니다.</p>
+        </header>
+
+        <nav class="nav">
+            <button>회사소개</button>
+            <button>서비스</button>
+            <button>채용정보</button>
+            <button>문의하기</button>
+        </nav>
+
+        <main class="main">
+            <h2>회사 소개</h2>
+            <p>ABC 소프트웨어는 학원, 병원, 쇼핑몰을 위한 웹 기반 관리 시스템을 개발합니다.
+                 사용자가 쉽고 빠르게 업무를 처리할 수 있는 서비스를 제공합니다.</p>
+            <h2>주요 서비스</h2>
+            <p>예약 관리, 회원 관리, 결제 관리, 통계 대시보드 기능을 제공합니다.</p>
+        </main>
+
+        <aside class="aside">
+            <h2>고객센터</h2>
+            <p>전화: 02-1234-5678</p>
+            <p>운영시간: 09:00 ~ 18:00</p>
+        </aside>
+
+        <footer class="footer">
+            Copyright 2026 ABC Software 
+        </footer>
+    </div>
+
+</body>
+</html>

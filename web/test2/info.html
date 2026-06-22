@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .layout{
+            display: grid;
+
+            grid-template:
+            "header header" 40px
+            "aside main" 300px
+            "footer footer" 40px
+            /120px 1fr;
+
+        }
+
+        .header{
+            grid-area: header;
+        }
+
+        .aside{
+            background-color: white;
+            grid-area: aside;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            border: 1px solid #ddd;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav button{
+        padding: 12px;
+        border: none;
+        text-align: left;
+        border-radius: 8px;
+        width: 80%;
+        font-size: 16px;
+        font-weight: bold;
+        }
+
+        .main{
+            grid-area: main;
+        }
+
+        .footer{
+            grid-area: footer;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <header class="header">
+            <h1>학원 관리 시스템</h1>
+        </header>
+
+        <aside class="aside">
+            <h2>메뉴</h2>
+            <button>수강생 관리</button>
+            <button>출결 관리</button>
+            <button>상담 기록</button>
+            <button>수납 관리</button>
+            <button>통계</button>
+        </nav>
+
+        <main class="main">
+
+        </main>
+
+        <footer class="footer">
+            Copyright 2026 ABC Software 
+        </footer>
+    </div>    
+</body>
+</html>

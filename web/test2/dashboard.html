@@ -1,0 +1,53 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card-container{
+            margin: 14px 4px;
+            display: grid;
+            gap: 20px;
+
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: repeat(2, 80px);
+        }
+
+        .card{
+            background: white;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            gap:16px
+        }
+    </style>
+ </head>
+ <body>
+    <h2>오늘의 추천 상품</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>전체 수강생</h3>
+            <p class="detail">128명</p>
+        </div>
+
+        <div class="card">
+            <h3>오늘 출석률</h3>
+            <p class="detail">92%</p>
+        </div>
+
+        <div class="card">
+            <h3>미납 수강생</h3>
+            <p class="detail">7명</p>
+
+        </div>
+
+        <div class="card">
+            <h3>상담 예약</h3>
+            <p class="detail">12건</p>
+        </div>
+    </div>
+ </body>
+ </html>
