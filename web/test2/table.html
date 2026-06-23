@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+/* 초기화 */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif
+        }
+
+        table{
+            width: 99%;
+            border-collapse: collapse;
+            margin: 4px;
+        }
+
+        h1{
+            padding: 16px 2px;
+        }
+
+        th{
+            text-align: left;
+            font-weight: 400;
+            padding: 12px;
+        }
+
+        td{
+            border-bottom: 1px solid #ddd;
+            padding: 12px;
+        }
+
+/* 헤더 구조 스타일: 테이블의 첫 번째 자식 행(tr:first-child)은 배경색 #2c3e50, 글자색 #ffffff로 고정하세요. */
+        tr:first-child{
+            background: #2c3e50;
+            color: white;
+        }
+
+/* 구조 의사 클래스 활용: 첫 번째 행(헤더)을 제외하고, 데이터가 작성되는 tr 중 짝수(even) 번째 행에만 배경색 #f8f9fa를 적용하여 가독성을 높이세요.
+홀짝 입력 가능(odd, even) */
+        tr:nth-child(even){
+            background: #f8f9fa;
+        }
+
+/* 동적 의사 클래스 및 부정 선택자 조합: 사용자가 데이터 행에 마우스를 올렸을 때(:hover) 배경색이 #ebf5fb로 바뀌며
+ 마우스 커서가 포인터(cursor: pointer)로 변하게 하세요.
+  단, 첫 번째 행(헤더)과 마지막 행(총합)은 마우스를 올려도 이 hover 스타일이 절대 적용되지 않도록
+   :not() 선택자를 결합하여 방어 코드를 짜야 합니다. */
+
+   /* :~ 조건을 연결하듯이 진행 */
+        tr:not(:first-child):not(:last-child):hover{
+            background: #ebf5fb;
+            cursor: pointer;
+        }
+
+/* 마지막 행 스타일: 테이블의 가장 마지막 자식 행(tr:last-child)은 
+배경색 #eaeded, 글자색 #2c3e50, 글자 두께 bold로 지정하세요. */
+        tr:last-child{
+            background: #eaeded;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <h1>사원 성과 테이블</h1>
+        <tr class="column">
+            <th>사원번호</th>
+            <th>이름</th>
+            <th>직급</th>
+            <th>성과점수</th>
+        </tr>
+
+        <tr>
+            <td>A001</td>
+            <td>김철수</td>
+            <td>팀장</td>
+            <td>95점</td>
+        </tr>
+
+        <tr>
+            <td>A002</td>
+            <td>이영희</td>
+            <td>대리</td>
+            <td>88점</td>
+        </tr>
+
+        <tr>
+            <td>A003</td>
+            <td>박민수</td>
+            <td>사원</td>
+            <td>72점</td>            
+        </tr>
+
+        <tr>
+            <td>A004</td>
+            <td>최지우</td>
+            <td>사원</td>
+            <td>84점</td>            
+        </tr>
+
+        <tr class="total">
+            <td>총 계</td>
+            <td>4명</td>
+            <td>-</td>
+            <td>평균 84.75점</td>
+        </tr>
+    </table>
+</body>
+</html>
