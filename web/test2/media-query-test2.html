@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>미디어 쿼리 레이아웃 실습</title>
+  <style>
+    .container{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .card{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 18px;
+        padding: 40px;
+        flex: 1;
+    }
+
+    @media(min-width:768px){
+        .container{
+            flex-direction: row;
+        }
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center; margin-top:20px;">반응형 레이아웃 예제</h2>
+  <div class="container">
+    <div class="card">박스 1</div>
+    <div class="card">박스 2</div>
+  </div>
+</body>
+</html>
+
+<!-- ### 요구사항 -->
+
+<!-- - **모바일 화면 (기본 상태)**
+    - `.container`의 방향을 세로(`column`)로 설정한다
+    - 박스 두 개가 위아래로 쌓여 표시되어야 한다
+    - 각 박스의 여백(`gap`)은 10px, 내부 여백(`padding`)은 40px 이상 유지한다 -->
+<!-- - **태블릿 화면 이상 (768px 이상)**
+    - `.container`의 방향을 가로(`row`)로 변경한다
+    - 두 개의 박스가 **나란히** 보이게 만들어야 한다
+    - 각 박스의 폭이 자동으로 균등하게 분배되도록 한다 (`flex: 1` 활용) -->

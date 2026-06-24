@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미디어 쿼리 실습 문제</title>
+    <style>
+        /* 여기에 코드를 작성하세요 */
+
+        .card{
+            background-color: #3498db;
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            padding: 40px;
+        }
+
+        /* 1. 기본 화면(모바일, 768px 미만)에서는
+        - 배경색을 **하늘색(#3498db)**
+        - 글자 크기를 **16px** */
+        @media(max-width:767px){
+            .card{
+                background-color: #3498db;
+                font-size: 16px;
+            }
+        }
+
+        /* 2. 화면 너비가 **768px 이상**일 때는
+            - 배경색을 **연두색(#2ecc71)**
+            - 글자 크기를 **20px** */
+
+        @media(min-width:768px){
+            .card{
+                background-color: #2ecc71;
+                font-size: 20px;
+            }
+        }
+
+        /* 3. 화면 너비가 **1024px 이상**일 때는
+            - 배경색을 **보라색(#9b59b6)**
+            - 글자 크기를 **24px** */
+        
+        @media(min-width:1024px){
+            .card{
+                background-color: #9b599b;
+                font-size: 24px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- 4. 카드 중앙에는 “반응형 카드입니다” 문구를 표시한다 -->
+    <div class="card">반응형 카드입니다.</div>
+</body>
+</html>
