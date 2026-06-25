@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: sans-serif;
+            background-color: #f0f2f5;
+            text-align: center;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            border-radius: 8px;
+            margin: 40px auto;
+            transition : all 0.5s ease 0.1s;
+        }
+        /* transition : property duration timing-function delay 
+        property : 어떤 속성을 변화시킬지 (width, background ... )
+        duration : 몇 초 동안 변화할지 0.3s
+        timing-function : 변화 속도 곡선
+            ㄴ ease : 천천히 시작 -> 빨라졌다가 -> 천천히 끝난다.
+            ㄴ linear : 일정한 속도
+            ㄴ ease-in : 천천히 시작
+            ㄴ ease-out : 천천히 끝남
+            ㄴ ease-in-out : 천천히 시작하고 천천히 끝난다.
+        delay : 몇 초 뒤 시작할지 */
+
+        /* transition이 잘되는 속성
+         - 숫자로 중간값을 계산할 수 있는 속성
+        ex. width, height, background-color, color, opacity
+        transform, box-shadow, border-radius
+        
+        잘 안되는 속성
+         - 중간값을 계산할 수 없는 속성
+         display */
+
+        .box:hover{
+            width: 200px;
+            background-color: cornflowerblue;
+        }
+        
+        /* btn클래스
+        내부여백 : 상하 12px, 좌우 24px 
+        테두리 없음
+        테두리 둥글게 8px
+        배경색 : royalblue
+        글씨색 : 흰색
+        폰트 크기 : 16px
+        커서 : 포인터
+        애니메이션 0.3s동안 ease로 자연스럽게 동작하도록 하기
+        
+        마우스 올렸을 때
+        배경색이 tomato로 바뀌고
+        버튼이 위로 3px만큼 이동시키기*/
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            background-color: royalblue;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 
+            background-color 0.3s ease,
+            transform 0.3s ease;
+            
+        }
+
+        .btn:hover{
+            transform: translateY(-3px);
+            background-color: tomato;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>CSS Transition</h1>
+    <p>마우스를 박스 위에 올려보세요</p>
+    <div class="box"></div>
+
+     <hr>
+
+     <button class="btn">버튼</button>
+</body>
+</html>

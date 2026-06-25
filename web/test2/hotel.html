@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 초기값 setting */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* header */
+
+        .hotel__header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            color: #0F766E;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .hotel__nav-list{
+            display: flex;
+            gap: 10px;
+        }
+
+        .hotel__nav-list li{
+            list-style: none;
+            font-weight: bold;
+            color: black;
+            transition: transform 0.3s ease,
+            color 0.3s ease;
+        }
+
+        .hotel__nav-list li:hover{
+            color: #0F766E;
+            transform: scale(1.12);
+        }
+
+        /* main - search-section */
+
+        .search-section{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #CCFBF1;
+            padding: 40px;
+            gap: 12px;
+        }
+
+        .search-section__desc{
+            color: #606864;
+            font-size: 14px;
+        }
+
+        .search-section__search-group{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 800px;
+            gap: 8px;
+            background-color: white;
+            padding: 14px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+
+            transition: transform 0.3s ease;
+        }
+
+        .search-section__search-group:hover{
+            transform: translateY(-6px);
+        }
+
+        .search-section__input{
+            width: 450px;
+            padding: 9px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            flex: 1;
+        }
+
+        .search-section__input:focus{
+            outline: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            border: 1px solid #90c5ba;
+        }
+
+        .search-section__btn{
+            padding: 9px 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #0F766E;
+            color: white;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        /* main - hotel-section */
+
+        .hotel-section{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .hotel-section__card{
+            display: flex;
+            gap: 24px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .hotel-section__card-image{
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            object-fit: cover;
+        }
+
+        .hotel-section__text{
+            line-height: 1.6;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header class="hotel__header">
+        <h2 class="hotel__logo">Hotel Finder</h2>
+        <nav>
+            <ul class="hotel__nav-list">
+                <li>호텔검색</li>
+                <li>예약확인</li>
+                <li>고객센터</li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="search-section">
+            <h1 class="search-section__title">나에게 맞는 호텔을 찾아보세요</h2>
+            <p class="search-section__desc">지역명이나 호텔명을 입력하면 추천 숙소를 확인할 수 있습니다.</p>
+            <div class="search-section__search-group">
+                <input class="search-section__input" type="text" placeholder="예: 제주, 부산, 강릉">
+                <button class="search-section__btn">검색하기</button>
+            </div>
+        </section>
+
+        <section class="hotel-section">
+            <div class="hotel-section__card">
+                <img class="hotel-section__card-image" src="오션뷰.jpg" alt="오션뷰 호텔">
+                <div class="hotel-section__text">
+                    <h2 class="hotel-section__card-title">오션뷰 호텔</h2>
+                    <p class="hotel-section__card-desc">바다가 보이는 객실과 조용한 휴식 공간을 제공하는 호텔입니다. 가족 여행과 커플 여행 모두에게 적합합니다.</p>
+                    <p class="hotel-section__card-price">1박 120,000원부터</p>
+                    <button class="hotel-section__card-btn">예약하기</button>
+                </div>
+            </div>
+
+            <div class="hotel-section__card">
+                <img class="hotel-section__card-image" src="시티 비즈니스 호텔.jpg" alt="시티 비즈니스 호텔">
+                <div class="hotel-section__text">
+                    <h2 class="hotel-section__card-title">시티 비즈니스 호텔</h2>
+                    <p class="hotel-section__card-desc">역과 가까운 위치에 있어 이동이 편리하며, 출장객을 위한 깔끔한 객실과 업무 공간을 제공합니다.</p>
+                    <p class="hotel-section__card-price">1박 95,000원부터</p>
+                    <button class="hotel-section__card-btn">예약하기</button>
+                </div>               
+            </div>
+
+            <div class="hotel-section__card">
+                <img class="hotel-section__card-image" src="힐링 리조트.jpg" alt="힐링 리조트">
+                <div class="hotel-section__text">
+                    <h2 class="hotel-section__card-title">힐링 리조트</h2>
+                    <p class="hotel-section__card-desc">자연 속에서 여유롭게 쉴 수 있는 리조트입니다. 산책로, 수영장, 조식 서비스를 함께 제공합니다.</p>
+                    <p class="hotel-section__card-price">1박 150,000원부터</p>
+                    <button class="hotel-section__card-btn">예약하기</button>
+                </div>
+            <div class="hotel-section__card">
+                
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

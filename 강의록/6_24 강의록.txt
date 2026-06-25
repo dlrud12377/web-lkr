@@ -112,10 +112,11 @@ header, nav, card, product-card, login-form, profile, footer ...
 	<h2 class="product-card__title>무선 마우스<h2>
 	<p class="product-card__desc">조용한 사무용 마우스</p>
 	<p class="product-card__price">29,000</p>
-	<button class="product-card__btn">구매하기</button>
+	<button class="product-card__btn">구매하기</button> 
 </article>
 
 Element : Block 안에 포함되는 구성요소
  - Element는 혼자 존재하기보다는 Block 안에서 의미가 있음
 
-Modifier
+Modifier : Block이나 Element의 상태 또는 변형을 의미한다.
+ex) product-card product-card--sale

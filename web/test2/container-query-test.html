@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: #f5f6fa;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 40px;
+        }
+
+        .product-title{
+            margin-bottom: 12px;
+        }
+
+        .product-card__container{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .product-card{
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        /* 부모 요소에 적용해야 해서 card 1개 단위를 감싸는 container에 inline-size 적용 */
+        .product-item{
+        container: item / inline-size;
+        }
+
+
+        .product-card button{
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .product-desc{
+            font-size: 16px;
+            color: #333;
+        }
+
+        @media (min-width : 768px) {
+            .product-card__container{
+                flex-direction: row;
+
+            }
+
+            .product-item{
+                flex: 1;
+            }
+        }
+
+        @container item (min-width:300px){
+            .product-card{
+                background-color: #fff7ed;
+
+            }
+
+            .product-card h2{
+                font-size: 28px;
+            }
+
+            .product-card button{
+                width: 100%;
+            }
+        }
+        
+
+    </style>
+</head>
+<body>
+
+    <h2 class="product-title">추천 상품</h2>
+    <section class="product-card__container">
+        
+        <div class="product-item">
+            <div class="product-card">
+                <h2>무선 키보드</h2>
+                <p class="product-desc">조용한 타건감과 긴 배터리 시간을 제공하는 키보드입니다.</p>
+                <p><strong>39,000원</strong></p>
+                <button>구매하기</button>
+            </div>
+        </div>
+
+        <div class="product-item">
+            <div class="product-card">
+                <h2>무선 마우스</h2>
+                <p class="product-desc">가볍고 휴대하기 좋은 사무용 무선 마우스입니다.</p>
+                <p><strong>25,000원</strong></p>
+                <button>구매하기</button>
+            </div>
+        </div>
+
+        <div class="product-item">
+            <div class="product-card">
+                <h2>USB 허브</h2>
+                <p class="product-desc">노트북에 다양한 장치를 연결할 수 있는 멀티 허브입니다.</p>
+                <p><strong>32,000원</strong></p>
+                <button>구매하기</button>
+            </div>
+        </div>
+
+    </section>
+</body>
+</html>

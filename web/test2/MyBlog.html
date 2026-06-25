@@ -50,14 +50,15 @@
             display: flex;
             gap: 10px;
             list-style: none;
+            padding : 0;
+            margin : 0;
         }
 
         /* main */
         .layout{
             display: flex;
             flex-direction: column;
-            padding : 20px;
-            gap: 10px;
+            gap: 15px;
         }
     
         .posts{
@@ -99,7 +100,7 @@
             background: #fff;
             border: 1px solid #e5e7eb;
             border-radius: 10px;
-            padding: 16px;
+            padding: 16px 16px 16px 30px;
         }
 
         footer{
@@ -166,7 +167,7 @@
 <body>
         <header>
             <div class="container layout">
-                <p>My Blog</p>
+                <p class="header-title">My Blog</p>
                 <nav>
                     <ul class="nav-list">
                         <a><li>홈</li></a>
@@ -178,7 +179,7 @@
             </div>
         </header>
 
-        <main class="layout">
+        <main>
             <section class="posts">
                 <article class="card">
                 <img class="thumb" src="https://picsum.photos/800/450?1" alt="썸네일 설명">
