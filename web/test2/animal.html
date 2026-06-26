@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* initial value */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-color: #eef2f3;
+            height: 100vh;
+            display: flex;
+            font-family: Arial, sans-serif;
+        }
+
+        /* aside */
+
+        .dashboard{
+            width: 240px;
+            height: 100%;
+            background-color: #263238;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 20px;
+            gap: 20px;
+        }
+
+        .dashboard__logo{
+            color: #FFCC80;
+            font-size: 26px;
+            margin-bottom: 30px;
+        }
+
+        .dashboard__nav-list{
+            color: white;
+        }
+
+        .dashboard__nav-list ul{
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .dashboard__nav-list li{
+            transition: all 0.3s ease;
+        }
+
+        .dashboard__nav-list li:hover{
+            background-color: #37474f;
+            transform: translateX(8px);            
+        }
+
+        /* header */
+        .left-container{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 30px;
+        }
+
+        .header__card{
+            background-color: white;
+            border-radius: 18px;
+            padding: 24px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        .header__card-title{
+            margin-bottom: 10px;
+            animation: rise 0.9s;
+        }
+
+        @keyframes rise{
+            from{
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* main - summary-section */
+
+        .summary-section{
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .summary-card{
+            background-color: white;
+            color: #607D8B;
+            border-radius: 18px;
+            padding: 24px;
+            line-height: 1.4;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+
+            animation: bigger 0.3s ease;
+            transition: all 0.3s ease;
+        }
+
+        .summary-card:hover{
+            transform: translateY(-10px);
+            box-shadow: 0 16px 28px rgba(0,0,0,0.15);            
+        }
+
+        @keyframes bigger{
+            from{
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to{
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .summary-card__title{
+            font-weight: bold;
+        }
+
+        .summary-card__count{
+            font-size: 38px;
+            color: #F06C00;
+            font-weight: bold;
+        }
+
+        /* main - status-section */
+
+        .status-section{
+            
+            background-color: white;
+            border-radius: 18px;
+            padding: 24px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);     
+        }
+
+        .status-section__title{
+            margin-bottom: 12px;
+        }
+
+        .status-section__table{
+            width: 100%;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+            margin: 0;
+        }
+
+        .status-section__table th{
+            background-color: #eceff1;
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .status-section__table td, .status-section__table tr{
+            border: 1px solid #ddd;
+            font-size: 14px;
+            padding: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .status-section__table tr:hover{
+            background-color: #fff3e0;
+        }
+
+        /* main - notice-section */
+
+        .notice-section{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .notice-section__card{
+            background-color: white;
+            padding: 28px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border-radius: 18px;
+
+            transition: all 0.3s ease;
+        }
+
+        .notice-section__card:hover{
+            transform: scale(1.03);
+        }
+
+        .notice-section__title{
+            margin-bottom: 10px;
+        }
+
+        .notice-section__card li{
+            line-height: 1.6;
+            margin-left: 20px;
+            font-size: 15px;
+            color : #70777B;
+        }
+
+        .notice-section__card--alert{
+            animation: shake 0.8s infinite;
+        }
+
+        @keyframes shake{
+            0%{
+                transform: translateX(-2px);
+            }
+            50%{
+                transform: translateX(2px);
+            }
+            100%{
+                transform: translateX(-2px);
+            }
+        }
+
+        /* footer */
+        footer{
+            align-items: center;
+            background-color: white;
+            border-radius: 18px;
+            padding: 20px;
+            color: #607d8b;
+            font-size: 15px;
+            text-align: center;
+        }
+        
+
+
+    </style>
+</head>
+<body>
+    <aside class="dashboard">
+        <h2 class="dashboard__logo">Happy Paws</h2>
+        <nav class="dashboard__nav-list">
+            <ul>
+                <li><a>대시보드</a></li>
+                <li><a>입양관리</a></li>
+                <li><a>보호 동물</a></li>
+                <li><a>봉사 일정</a></li>
+                <li><a>후원 현황</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <div class="left-container">
+        <header>
+            <div class="header__card">
+                <h2 class="header__card-title">입양 현황 대시보드</h2>
+                <p class="header__card-desc">오늘의 보호소 운영 현황을 한눈에 확인합니다.</p>
+            </div>
+        </header>
+
+        <main>
+            <section class="summary-section">
+                <article class="summary-card">
+                    <p class="summary-card__title">보호중</p>
+                    <p class="summary-card__count">28</p>
+                </article>
+
+                <article class="summary-card">
+                    <p class="summary-card__title">입양 완료</p>
+                    <p class="summary-card__count">12</p>
+                </article>
+
+                <article class="summary-card">
+                    <p class="summary-card__title">치료중</p>
+                    <p class="summary-card__count">5</p>
+                </article>
+
+                <article class="summary-card">
+                    <p class="summary-card__title">봉사 신청</p>
+                    <p class="summary-card__count">18</p>
+                </article>
+            </section>
+
+            <section class="status-section">
+                <h3 class="status-section__title">보호 동물 상태표</h3>
+                <table class="status-section__table">
+                    <tr>
+                        <th>이름</th>
+                        <th>종류</th>
+                        <th>상태</th>
+                        <th>담당자</th>
+                    </tr>
+
+                    <tr>
+                        <td>초코</td>
+                        <td>강아지</td>
+                        <td>입양 대기</td>
+                        <td>김보호</td>
+                    </tr>
+
+                    <tr>
+                        <td>나비</td>
+                        <td>고양이</td>
+                        <td>치료중</td>
+                        <td>이관리</td>
+                    </tr>
+
+                    <tr>
+                        <td>두부</td>
+                        <td>강아지</td>
+                        <td>상담 예약</td>
+                        <td>박입양</td>
+                    </tr>
+
+                    <tr>
+                        <td>콩이</td>
+                        <td>고양이</td>
+                        <td>입양 완료</td>
+                        <td>최상담</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section class="notice-section">
+                <div class="notice-section__card notice-section__card--alert">
+                    <h3 class="notice-section__title">긴급 구조 알림</h3>
+                    <ul class="notice-section__list">
+                        <li>오늘 구조 요청 3건</li>
+                        <li>치료가 필요한 동물 2마리 확인</li>
+                        <li>임시 보호처 1곳 필요</li>
+                    </ul>
+                </div>
+
+                <div class="notice-section__card notice-section__card--volunteer">
+                    <h3 class="notice-section__title">봉사 일정</h3>
+                    <ul class="notice-section__list">
+                        <li>오전 10:00 산책 봉사</li>
+                        <li>오후 02:00 보호소 청소</li>
+                        <li>오후 05:00 사료 정리</li>
+                    </ul>
+                </div>
+
+            </section>
+
+        </main>
+
+        <footer>
+            © 2026 Happy Paws Animal Shelter Dashboard
+        </footer>
+    </div>
+</body>
+</html>
