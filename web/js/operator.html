@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 연산자
+        // 값을 계산하거나 비교하거나 조작하기 위해 사용하는 기호 또는 문법
+
+        // 산술연산자
+        let a = 10 + 5; // 15
+        let b = 10 -3; // 7
+        let c = 4 * 3; // 12
+        let d = 10 / 2; // 5
+        let e = 10 / 3; // 1
+        document.write(d)
+
+        // 문자 결합 연산
+        let name = "홍길동";
+        let greeting = "안녕하세요 " + name + "님!";
+
+        document.write('<br>');
+        document.write(greeting + '<br>');
+
+        let age = 21;
+
+        let message = name + "님의 나이는" + age + "살 입니다.";
+
+        document.write(message + '<br>');
+
+        // 복합대입연산자
+        // +=, -=, *=, /=
+
+        let x = 10;
+        x += 5; // x = x + 5;
+
+        let str = "<table border = '1'>";
+            str += "<tr>";
+            str += "<td>1</td><td>2</td><td>3</td>";
+            str += "</tr>";
+            str += "</table>";
+
+        document.write(str);
+
+        // 증감연산자
+
+        // 선행 증감
+        let y = 5;
+        document.write(++y + '<br>');
+        // 후행 증감
+        y = 5;
+        document.write(y++ + '<br>');
+
+        // 비교연산자
+        a = 10;
+        b = 5;
+
+        let greater = a > b; // true
+        let less = a < b; // false
+        let equal = a == b; // false
+        let notequal = a != b; // true
+        let greaterOrEqual = a >= 10; // true
+        let lessOrEqual = b <= 5; // true
+
+        // 느슨한 비교(==)
+        // 타입이 달라도 값만 같으면 같다고 인정해준다.
+
+        // 엄격한 비교(===)
+        // 타입과 값이 모두 같아야 같다고 인정해준다.
+
+        // 문자열은 사전순으로 비교된다.
+
+        let s1 = "apple";
+        let s2 = "banana";
+
+        let strCompare1 = s1 < s2; // true
+        let strCompare2 = s1 > s2; // false
+
+        // 논리연산자
+        // ||(or) : 앞 뒤 피연산자 중 하나라도 true면 true
+        // &&(and) : 앞 뒤 피연산자 모두 true면 true
+        // !(not) : 부정(true -> false, false -> true)
+
+        a = true;
+        b = true;
+
+        let andResult = a && b; // fals정
+
+        // truthy / falsy일때 연산
+        x = 0;
+        y = "Hello";
+
+        let result = x || y; // false or true = true
+        let result2 = x && y; // false and true = false
+
+        // || : 첫번째 truthy 값을 반환한다.
+        // && : 첫번째 falsy값을 반환한다.
+        // 모두 Truthy면 마지막 값을 반환한다.
+        // result1의 경우 write시 0이 false이므로 두번째 truthy값인 y값을 반환
+        // result2의 경우 0이 false여서 boolean값이 바로 결정되므로 이때의 falsy값인 x값을 반환함
+
+        document.write('<hr>')
+
+        document.write(result + '<br>');
+        document.write(result2);
+
+        document.write('<hr>')
+
+        //1. 기본값 설정
+        let userName;
+        let role = userName || "Guest";
+
+        //2. 조건이 true일 때 실행
+        let isLoggedIn = true;
+        isLoggedIn && (userName="홍길동");
+
+        // 삼항연산자
+        // 조건식 ? 조건식이 true일 때 : 조건식이 false일 때
+
+        let scores = 85;
+        result = (scores >= 60) ? '합격' : '불합격';
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
