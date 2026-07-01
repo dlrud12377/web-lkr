@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const day = 3;
+
+        switch(day) {
+            case 1:
+                document.write('월요일');
+                break;
+            case 2:
+                document.write('화요일');
+                break;
+            case 3:
+                document.write('수요일');
+                break;
+            default:
+                document.write('1~3의 값이 아님');
+                break;
+        }
+
+        function showPrice(){
+
+            // 선택한 과일의 정보를 가져오기
+            let fruit = document.querySelector("#fruit").value;
+
+            // 사과 : 3000원
+            // 바나나 : 2500원
+            // 포도 : 5000원
+            // 오렌지 : 4000원
+            let result;
+
+            switch(fruit){
+                case 'apple':
+                    result = 3000;
+                    break;
+                case 'banana':
+                    result = 2500;
+                    break;
+                case 'grape':
+                    result = 5000;
+                    break;
+                case 'orange':
+                    result = 4000;
+                    break;
+            }
+
+            // 화면에 가격 띄우기
+            document.getElementById('result').innerHTML = result;
+        }
+
+        function showClassInfo() {
+            let grade = Number(document.getElementById('grade').value);
+
+
+            let message="";
+            switch(grade){
+                case 1:
+                    message="A동 101호<br> HTML/CSS 기초 수업입니다.";
+                    break;
+                case 2:
+                    message="B동 202호<br> 중급 JavaScript 수업입니다.";
+                    break;
+                case 3:
+                    message="C동 303호<br> 프로젝트 실습 수업입니다.";
+                    break;
+                case 4:
+                    message="D동 404호<br> 포트폴리오 제작 수업입니다.";
+                    break;
+                default:
+                    message="예기치 못한 오류가 발생했습니다.";
+            }
+
+            document.getElementById('result2').innerHTML = message;
+        }
+
+        function showPreviliges(){
+            let userType = document.querySelector("input[type='radio']:checked").value;
+            let message="";
+
+            switch(userType){
+                case "manager":
+                    message = "관리자 권한";
+                    break;
+                case "member":
+                    message = "회원 권한";
+                    break;
+                case "guest":
+                    message = "손님 권한";
+                    break;
+                default : 
+                    message = "잘못된 선택값입니다.";
+            }
+
+            document.getElementById('result3').innerHTML = message;
+        }
+
+        function add(){
+            let num1 = Number(document.getElementById('num1').value);
+            let num2 = Number(document.getElementById('num2').value);
+            
+            document.getElementById('result4').innerHTML = num1 + num2;
+        }
+
+        function sub(){
+            let num1 = Number(document.getElementById('num1').value);
+            let num2 = Number(document.getElementById('num2').value);
+
+            document.getElementById('result4').innerHTML = num1 - num2;
+        }
+
+        function mul(){
+            let num1 = Number(document.getElementById('num1').value);
+            let num2 = Number(document.getElementById('num2').value);
+
+            document.getElementById('result4').innerHTML = num1 * num2;
+        }
+
+        function dev(){
+            let num1 = Number(document.getElementById('num1').value);
+            let num2 = Number(document.getElementById('num2').value);
+
+            document.getElementById('result4').innerHTML = num1 / num2;
+        }
+    </script>
+
+    <style>
+        #result, #result2, #result3{
+            color: red;
+        }
+
+        body{
+            font-family: Arial, sans-serif;
+        }
+
+        table th, td, tr{
+            border: 1px solid #ccc;
+        }
+
+        table th, td{
+            text-align: center;
+        }
+
+        table input{
+            border: none;
+
+        }
+
+        input:focus{
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <hr>
+    <select id="fruit">
+        <option value="apple">사과</option>
+        <option value="banana">바나나</option>
+        <option value="grape">포도</option>
+        <option value="orange">오렌지</option>
+    </select>
+
+    <button onclick="showPrice()">가격 확인</button>
+    <h3 id="result"></h3>
+
+    <hr>
+    <h3>학년별 강의실 안내</h3>
+
+    <!-- 사용자가 학년을 입력하면 해당 학년의 강의실과 안내 문구를 출력하세요
+     1학년 : A동 101호 HTML/CSS 기초 수업
+     2학년 : B동 202호 중금 JavaScript 수업
+     3학년 : C동 303호 프로젝트 실습 수업
+     4학년 : D동 404호 포트폴리오 제작 수업
+     
+     출력 예시
+     2학년
+     강의실 : B동 202호
+     중급 JavaScript 수업입니다.-->
+
+    <select id="grade">
+        <option value='1'>1학년</option>
+        <option value='2'>2학년</option>
+        <option value='3'>3학년</option>
+        <option value='4'>4학년</option>
+    </select>
+
+    <button onclick="showClassInfo()">강의실 확인</button>
+    <h3 id="result2"></h3>
+    
+    <hr>
+    <h3>라디오 버튼으로 회원 권한 확인</h3>
+    <!-- 사용자가 회원 권한을 선택하면 해당 권한으로 이용가능한 기능 출력하기
+     관리자 : 관리자 권한
+     회원 : 회원 권한
+     손님 : 손님 권한 -->
+
+    <!-- 관리자, 회원, 손님 라디오버튼 만들기 -->
+     <label for="manager">
+        <input type="radio" name="previliges" value="manager" id="manager"> 관리자
+    </label>
+     
+     <label for="member">
+        <input type="radio" name="previliges" value="member" id="member"> 회원
+     </label>
+
+     <label for="guest">
+        <input type="radio" name="previliges" value="guest" id="guest"> 손님
+     </label>
+
+    <!-- 권한 확인 버튼 만들기 -->
+     <button onclick="showPreviliges()">권한 확인</button>
+
+    <!-- 결과 출력하기 -->
+     <h3 id="result3"></h3>
+
+     <hr>
+
+
+     <h3>연산자 버튼 계산기</h3>
+     <!-- 두 개의 숫자를 입력하고 연산자 버튼을 클릭하면 계산 결과를 출력 -->
+    
+     <table>
+        <tr>
+            <th>수1</th>
+            <td><input type="text" id="num1"></td>
+        </tr>
+
+        <tr>
+            <th>수2</th>
+            <td><input type="text" id="num2"></td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <button onclick="add()">+</button>
+                <button onclick="sub()">-</button>
+                <button onclick="mul()">*</button>
+                <button onclick="dev()">/</button>
+            </td>
+        </tr>
+
+        <tr>
+            <th>결과</th>
+            <td><span id="result4"></span></td>
+        </tr>
+
+
+     </table>
+</body>
+</html>

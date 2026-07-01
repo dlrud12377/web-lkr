@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let products = [
+        { name: "키보드", price: 30000 },
+        { name: "마우스", price: 15000 },
+        { name: "모니터", price: 200000 }
+        ];
+
+        let cart = [];
+
+        function printProducts() {
+            let html = "";
+
+            for(let i=0; i<products.length; i++) {
+                html += "<li>" + products[i].name + " : " + products[i].price + "원 ";
+                html += "<button onclick='addCart("+i+")'>장바구니 담기</button></li><br>"
+            }
+
+            document.getElementById("allProducts").innerHTML = html;
+        }
+
+        // 장바구니에 상품 추가하기 함수
+        function addCart(index){
+            // 장바구니에 제품이 없으면 
+            // {name : "키보드", price : 30000, quantity : 1}; 이런식으로 추가
+            // 제품이 있으면 개수만 변경
+            if(!cart[index]) {
+                cart[index] = {name : products[index].name, price : products[index].price, quantity : 1};
+            }
+            else{
+                cart[index].quantity += 1;
+            }
+
+            printCart();
+            totalPrice();
+            
+        }
+
+        function printCart(){
+            if (cart.length == 0) {
+                document.getElementById('cart').innerHTML = "현재 장바구니가 비어 있습니다.";
+                return;
+            }
+            else{
+                let html = "";
+                for(let i=0; i<cart.length; i++) {
+                    if (!cart[i] || cart[i].quantity == 0) {
+                        continue;
+                    }
+                    else{
+                        html += "<li>" + cart[i].name + " : " + cart[i].price + "원 X " + cart[i].quantity+ "개 ";
+                        html += "<button onclick='deleteProducts(" + i + ")'>삭제</button></li>";
+                    }
+                }
+                document.getElementById("cart").innerHTML= html;
+            }
+        }
+
+        function deleteProducts(index){
+            cart[index].quantity = 0;
+
+            printCart();
+            totalPrice();
+        }
+
+        function totalPrice(){
+
+            let total = 0;
+
+            for(let i=0; i<cart.length; i++){
+                if(!cart[i]){
+                    continue;
+                }
+                else{
+                    total += cart[i].price * cart[i].quantity;
+                }
+            }
+
+            document.getElementById("totalPrice").innerHTML = "총 금액 : " + total + "원";
+
+        }
+
+        
+    </script>
+</head>
+<body>
+
+    <h1>쇼핑몰 장바구니 관리 기능 만들기</h1>
+
+    <!-- 총 금액 영역
+     장바구니 전체 금액을 출력 -->
+
+    <!-- 1. 상품 배열 -->
+     <h2>상품 목록</h2>
+    <ul id="allProducts"></ul>
+
+    <script>
+        printProducts();
+    </script>
+
+    <!-- 2. 장바구니 배열
+      - 처음에는 빈 배열로 시작 -->
+     <h2>장바구니</h2>
+     <ul id="cart">
+     </ul>
+
+     <script>
+        printCart();
+     </script>
+
+     <h2 id = "totalPrice"></h2>
+
+    <!-- 기능 요구사항
+     상품 목록영역에 상품들을 출력
+     
+     장바구니 담기 버튼을 클릭하면
+     (장바구니에 없는 제품이면)
+     {name:"키보드", price : 30000, quantity : 1}
+      형태로 저장
+     (장바구니에 있는 제품이면
+     수량만 1 증가시키기)
+     
+     장바구니 배열 출력하기
+     제품명 / 가격 / 개수 / 금액 / 삭제버튼
+     
+     삭제버튼 누르면 해당 상품을 장바구니에서 삭제
+     삭제 후 장바구니 화면과 총 금액을 다시 출력한다.-->
+
+
+</body>
+</html>

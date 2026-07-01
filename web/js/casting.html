@@ -87,6 +87,15 @@
         let strict2 = '5' === 5;
         document.write(strict2 + '<br>');
 
+
+        let logic1 = !!'hello';
+        document.write('<hr>');
+        document.write('<h2>논리형 변환</h2>');
+        document.write(logic1 + '<br>');
+        let logic2 = !!'';
+        document.write(logic2 + '<br>');
+        // 그냥 출력하면 문자열이 그대로 나오기 때문에, truthy나 falsy 상태로 보고 싶다면
+        // !!(부정부정 = 긍정)를 붙여 boolean값으로 암묵적 형변환을 진행한 뒤 출력한다.
     </script>
 </head>
 <body>

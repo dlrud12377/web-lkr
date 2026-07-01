@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 버튼을 클릭하면 배열에서 메뉴 하나를 랜덤으로 선택하여
+        // 결과 영역에 출력하기
+        // 난수 뽑기 : Math.random()
+
+        function lunchRoulette(){
+            let menus = [
+                "김치찌개",
+                "돈까스",
+                "비빔밥",
+                "햄버거",
+                "초밥",
+                "짜장면"
+            ];
+
+            let result = "";
+            result = menus[Math.floor(Math.random() * menus.length)];
+            document.getElementById('result').innerHTML = result
+            
+        }
+
+        let fruits = [];
+
+        function fruitManagement(action){
+            let input = null;
+            let fruit = "";
+
+            switch(action){
+                case 'append':
+                    input = document.getElementById('fruits');
+                    fruit = input.value;
+                    if(fruits.some(a => fruit == a)){ // if(fruits.include ~ )
+                        alert("이미 등록된 과일입니다");
+                        break;
+                    }                    
+                    else if(!fruit){
+                        alert("과일을 입력해주세요.");
+                        break;
+                    }
+                    else{
+                        fruits.push(fruit);
+                        input.value = "";
+                        break;
+                    }
+                case 'delete':
+                    if(fruits.length == 0){
+                        alert("등록된 과일이 없습니다.")
+                        break;
+                    }
+                    else{
+                    fruits.pop();
+                    break;
+                    }
+                default:
+                    alert("오류 발생");
+                    break;
+            }
+
+            // 목록 텍스트를 담을 변수 생성
+            let html = "";
+            for(let i=0; i<fruits.length; i++){
+                html += "<li>" + fruits[i] + "</li>";
+            }
+
+            // 만든 목록 텍스트를 innerHTML로 올리기
+            document.getElementById('fruitList').innerHTML = html;
+        }
+
+    </script>
+</head>
+<body>
+    <h1>점심 메뉴 추천기</h1>
+    <!-- 메뉴 추천 버튼 -->
+    <button onclick="lunchRoulette()">메뉴 뽑기</button>
+
+    <!-- 결과를 출력 -->
+    <br>
+    <span id="result"></span>
+
+    <h1>과일 목록 관리</h1>
+    <!-- 과일 이름을 입력받기 -->
+    <input type="text" id="fruits" placeholder="과일 이름을 입력해주세요">
+    <!-- 추가 버튼, 삭제 버튼 -->
+     <button onclick="fruitManagement('append')">추가</button>
+     <button onclick="fruitManagement('delete')">삭제</button>
+    <!-- 과일 목록을 출력할 ul -->
+     <ul id="fruitList">
+     </ul>
+    <!-- 추가버튼을 누르면 입력한 과일을 맨 뒤에 추가, input을 비운다.
+    변경된 배열의 내용을 ul에 출기
+    입력한 과일이 이미 배열에 존재한다면 "이미 등록된 과일입니다" 경고창 띄우기 -->
+    <!-- 삭제버튼을 누르면 배열의 마지막 요소를 삭제하고 ul에 반영하기 -->
+    
+
+
+</body>
+</html>

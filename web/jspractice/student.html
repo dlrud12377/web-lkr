@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+        <script>
+        // 학생 정보를 관리하는 프로그램 만들기
+        // 학생 1명의 정보는 객체로 관리한다.
+        // 이름, 과목, 점수 세가지 속성이 존재한다.
+        // 여러 명의 학생은 배열로 관리한다.
+
+        let studentList = [];
+
+        function addStudent(){
+            let name = document.getElementById("name").value.trim();
+            let subject = document.getElementById("subject").value.trim();
+            let scoreText = document.getElementById("score").value.trim();
+
+            if(!name || !subject || !scoreText){
+                alert("모든 값을 입력하세요");
+                return;
+            }
+
+            let score = Number(scoreText);
+
+            if (Number.isNaN(score)) {
+                alert("점수는 숫자로 입력하세요.");
+                return;
+            }
+
+            studentList.push({name : name, subject : subject, score : score});
+            alert("추가 완료");
+
+            // 입력 완료된 값 input에서 삭제
+            document.getElementById("name").value="";
+            document.getElementById("subject").value="";
+            document.getElementById("score").value="";
+
+            printInfo();
+        }
+
+        function printInfo(){
+            if (studentList.length == 0){
+                document.getElementById("studentNotFound").innerHTML = "등록된 학생이 없습니다.";
+                document.getElementById("studentList").innerHTML = "";
+                return;
+            }
+
+            document.getElementById("studentNotFound").innerHTML = "";
+
+            let html="";
+
+            for(let i=0; i<studentList.length; i++) {
+                html += "<li>" + studentList[i].name + " / " + studentList[i].subject + " / " + studentList[i].score + "점 / ";
+                html += (studentList[i].score >= 60) ? "합격" : "불합격";
+                html += "<button onclick='deleteStudent(" + i + ")'>삭제</button></li>"
+            }
+
+            document.getElementById("studentList").innerHTML = html;
+
+        }
+
+        function deleteStudent(index){
+            studentList.splice(index, 1);
+            alert("삭제 완료");
+
+            printInfo();
+        }
+
+        // 페이지가 처음 열릴 때 students 배열에 들어있는 학생 목록 출력하기
+        // 이름 / 과목 / 점수 ok
+
+        // 학생 추가하기
+        // 정보를 입력하고 버튼을 누르면 새로운 학생을 만들어 배열에 추가하기 ok
+
+        // 입력값 검사
+        // 이름, 과목, 점수가 비어있는 경우 "모든 값을 입력하세요" 경고창 출력하기 ok
+
+        // 점수가 60점 이상이면 합격, 60점 미만이면 불합격을 목록 뒤에 함께 출력하기
+    </script>
+
+    <style>
+        *{
+            margin: 4px;
+        }
+        input{
+            padding: 8px;            
+            }
+
+        button{
+            padding: 8px;
+            border: none;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover{
+            opacity: 0.8;
+        }
+
+        button:active{
+            background-color: #2878ad;
+        }
+    </style>
+</head>
+<body>
+    <h1>성적 관리 프로그램</h1>
+
+    <!-- 이름, 과목, 점수 입력칸 -->
+     <h2>학생 점수 입력란</h2>
+     <label>
+        이름 : <input id = "name" type="text" placeholder="이름을 입력하세요"><br>
+     </label>
+     <label>
+        과목 : <input id="subject" type="text" placeholder="과목을 입력하세요"><br>
+     </label>
+     <label>
+        점수 : <input id="score" type="text" placeholder="점수을 입력하세요"><br>
+     </label>
+    <!-- 학생 추가 버튼 -->
+     <button onclick="addStudent()">
+        제출하기
+     </button>
+
+    <!-- 수강생 목록 -->
+     <h2>수강생 목록</h2>
+     <span id="studentNotFound"></span>
+     <ul id="studentList">
+        
+     </ul>
+
+     <script>
+        printInfo();
+     </script>
+
+</body>
+</html>

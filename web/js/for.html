@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // for(초기식; 조건식; 증감식) {
+        //    조건식이 참일 때 반복하고자 하는 명령
+        //    }
+        
+        // 헤더태그를 이용해서 화면에 출력하기
+        for(let i=6; i>=1; i--) {
+            document.write('<h' + i + '> 자바스크립트 </h' + i + '>');
+        }
+
+        document.write('<hr>');
+
+        let dan = 8;
+
+        for(let i=1; i<=9; i++){
+            document.write(dan,'X',i,'=',(i*dan),'<br>');
+        }
+
+        document.write('<hr>');
+
+        document.write('<ul>')
+        for(let i=0; i<3; i++) {
+            document.write('<li>안녕</li>');
+        }
+        document.write('</ul>')
+
+        function sum(){
+            let valueInput = Number(document.getElementById('inputNum').value);
+
+            let sum = 0;
+
+            for(let i=1; i<=valueInput;i++){
+                sum += i;
+            }
+
+            document.getElementById('result').innerHTML = sum;
+        }
+
+    </script>
+</head>
+<body>
+    <hr>
+
+    <h3>1부터 입력한 수까지의 합</h3>
+    <!-- 숫자를 입력받는다.
+     계산 버튼을 만든다.
+     1부터 입력한 숫자까지 더한 값을 출력한다. -->
+
+     <input type="text" id="inputNum" placeholder="숫자를 입력하세요">
+     <button onclick="sum()">계산하기</button>
+     <br>결과 : <span id="result"></span>
+</body>
+</html>

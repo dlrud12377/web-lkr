@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 농구공 25개가 있다.
+        // 한 박스에 4개씩 담을 수 있을 때 필요한 박스의 개수를
+        // body에 출력하기
+
+        // 함수로 제작
+
+        function calc(){
+
+        // input 태그를 선택해서 변수에 담음
+        let basketBall = document.getElementById('count');
+
+        // input 태그에 들어가있는 값 뽑기
+        // 뽑아온 값은 무조건 문자열이어서 정수로 바꿔야 함
+        let count = Number(basketBall.value);
+        let boxAmount = (count % 4 != 0) ? Math.floor(count / 4) + 1 : Math.floor(count / 4);
+
+        // 연산된 값을 넣어주기 위한 태그를 선택
+        let div = document.getElementById('box');
+
+        // InnerHTML
+        // 태그를 포함해서 문자열을 쓰면 적용이 된다.
+
+        // InnerText
+        // 태그를 써도 그냥 문자열로 그대로 출력이 된다.
+
+        div.innerText = boxAmount;
+
+        }
+
+        // 영화관에서 학생(20세 미만)은 20% 할인, 성인은 정가를 낸다.
+        // 티켓 가격이 12000원이고, 나이에 따라 티켓가격을 계산하여 출력하세요
+
+        function calc2(){
+
+            // 나이 가져오기
+            // let age = document.getElementById('age');
+            // let age_number = Number(age.value);
+            let age = Number(document.getElementById('age').value);
+
+            // 티켓값 가져오기
+            // let price = document.getElementById('ticket-price');
+            // let price_number = Number(price.value);
+            let price = Number(document.getElementById('ticket-price').value);
+
+            // 삼항 연산자 사용하여 티켓값 계산
+            let resultPrice = (age < 20) ? (price * (1-0.2)) : (price);
+
+            // 계산한 티켓값 타겟에 넣어주기
+            // let div2 = document.getElementById('box2');
+            // div2.innerText = resultPrice;
+            document.getElementById('box2').innerText = resultPrice;
+        }
+
+        function calc3(){
+            // 주문 금액 가져오기
+            let price = Number(document.getElementById('order-price').value);
+            
+            // VIP 여부 확인
+            let isVIP = document.querySelector("input[name='VIP']:checked").value === true;
+
+            let deliveryFee = ((price >= 30000) || (isVIP)) ? 0 : (price * 0.1);
+
+            document.getElementById('delivery-fee').innerText = deliveryFee;
+
+        }
+    </script>
+</head>
+<body>
+    <h1>박스 개수 계산기</h1>
+
+    <label>
+        공의 개수
+        <input type="text" id="count">
+    </label>
+    <button onclick="calc()"> 계산하기 </button>
+
+    <br>
+    <label>
+        필요한 박스의 개수
+        <div id="box"></div>
+    </label>
+
+    <h1>티켓 가격 계산기</h1>
+    <label>
+        나이 
+        <input type="text" id="age">
+    </label>
+    <br>
+    <label>
+        티켓가격
+        <input type="text" id="ticket-price">
+    </label>
+    <button onclick="calc2()"> 계산하기 </button>
+
+    <br>
+    <label>
+        티켓 가격
+        <div id="box2"></div>
+    </label>
+
+    <hr>
+    <h1>배송비 계산하기</h1>
+    <!-- 주문금액이 30000원 이상이거나 VIP 회원이면 무료 배송 -->
+
+    <!-- 주문 금액 입력 -->
+     <label>
+        <input type="text" id="order-price" placeholder="주문 금액 입력">
+     </label>
+     <br>
+
+     <!-- VIP여부는 radio 이용 -->
+     <label>
+        <input type="radio" name="VIP" value="true">
+        VIP
+     </label>
+
+    <label>
+        <input type="radio" name="VIP" value="false">
+        일반 회원
+     </label>
+
+     <br>
+
+     <button onclick="calc3()"> 계산하기 </button>
+     <div id="delivery-fee"></div>
+</body>
+</html>
