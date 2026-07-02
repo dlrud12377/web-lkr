@@ -110,21 +110,23 @@
 <body>
     <h1>성적 관리 프로그램</h1>
 
-    <!-- 이름, 과목, 점수 입력칸 -->
-     <h2>학생 점수 입력란</h2>
-     <label>
-        이름 : <input id = "name" type="text" placeholder="이름을 입력하세요"><br>
-     </label>
-     <label>
-        과목 : <input id="subject" type="text" placeholder="과목을 입력하세요"><br>
-     </label>
-     <label>
-        점수 : <input id="score" type="text" placeholder="점수을 입력하세요"><br>
-     </label>
-    <!-- 학생 추가 버튼 -->
-     <button onclick="addStudent()">
-        제출하기
-     </button>
+    <div class="submit-section">
+        <!-- 이름, 과목, 점수 입력칸 -->
+        <h2>학생 점수 입력란</h2>
+        <label>
+            이름 : <input id = "name" type="text" placeholder="이름을 입력하세요"><br>
+        </label>
+        <label>
+            과목 : <input id="subject" type="text" placeholder="과목을 입력하세요"><br>
+        </label>
+        <label>
+            점수 : <input id="score" type="text" placeholder="점수을 입력하세요"><br>
+        </label>
+        <!-- 학생 추가 버튼 -->
+        <button onclick="addStudent()">
+            제출하기
+        </button>
+     </div>
 
     <!-- 수강생 목록 -->
      <h2>수강생 목록</h2>

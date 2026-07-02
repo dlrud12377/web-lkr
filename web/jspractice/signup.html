@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Common */
+
+        body{
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        input, select{
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius:  6px;
+        }
+
+        button{
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        /* container */
+
+        .container{
+            width: 420px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* title */
+
+        .title{
+            text-align: center;
+            color: #111827;
+        }
+
+        /* id */
+
+        .id-box{
+            display: flex;
+            gap: 10px;
+        }
+
+        .id-box input{
+            flex: 1;
+        }
+
+        #checkBtn{
+            width: 90px;
+            background-color: #6b7280;
+            color: white;
+        }
+
+        /* password */
+
+        /* email */
+        .email-box{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .email-box input{
+            flex: 1;
+        }
+
+        .email-box select{
+            width: 140px;
+            text-align: center;
+        }
+
+        /* join */
+        #joinBtn{
+            width: 100%;
+            background-color: royalblue;
+            color: white;
+            margin-top: 15px;
+        }
+
+        /* member-item */
+        .member-item{
+            background-color: #f9fafb;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 8px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">회원가입</h2>
+        <h3>아이디</h3>
+        <div class="id-box">
+            <input id="userId" type="text" placeholder="아이디 입력">
+            <button id="checkBtn" onclick="duplicateTest()">중복검사</button>
+        </div>
+        <p id="message"></p>
+
+        <h3>비밀번호</h3>
+        <input id="userPw" type="password" placeholder="비밀번호 입력">
+
+        <h3>이메일</h3>
+        <div class="email-box">
+            <input id="emailId" type="email" placeholder="이메일 아이디"> @ 
+            <select id="emailDomain">
+                <option>=== 선택 ===</option>
+                <option value="gmail.com">gmail.com</option>
+                <option value="naver.com">naver.com</option>
+                <option value="daum.net">daum.net</option>
+                <option value="kakao.com">kakao.com</option>
+            </select>
+        </div>
+
+        <button id="joinBtn">회원가입</button>
+
+        <h2>회원 목록</h2>
+        <div class="member-item"></div>
+
+        <script>
+            let members = [];
+        </script>
+
+
+    </div>
+</body>
+</html>

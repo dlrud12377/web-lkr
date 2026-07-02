@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body id="body">
+    <!-- 로그인 화면을 만들고, 버튼을 클릭하면 로그인 박스와
+     입력창의 스타일을 다크모드 또는 라이트모드로 변경되도록 작성하기
+     html 요구사항
+     div id="loginBox"
+     h2
+     아이디 입력창 id="userId"
+     비밀번호 입력창 id="userPw"
+     로그인버튼 id="loginBtn"
+     다크모드 버튼
+     라이트모드 버튼 -->
+
+     <div id="loginBox">
+        <h2>로그인</h2>
+        <p>아이디 : <input id="userId" type="text" placeholder="아이디를 입력하세요"></p>
+        <p>비밀번호 : <input id="userPw" type="password" placeholder="비밀번호를 입력하세요"></p>
+        <button id="loginBtn" >로그인</button>
+     </div>
+     <button onclick="darkMode()">다크모드</button>
+     <button onclick="lightMode()">라이트모드</button>
+
+     <script>
+        const body = document.getElementById('body');
+        const loginBox = document.getElementById('loginBox');
+        const input = document.querySelectorAll('input');
+        const loginBtn = document.getElementById('loginBtn');
+
+        const darkMode = () => {
+            body.style.backgroundColor="#111";
+            body.style.color="white";
+            loginBox.style.backgroundColor="#222";
+            loginBox.style.border="1px solid #555";
+            loginBox.style.padding="20px";
+            loginBox.style.width = `300px`;
+            input.style.backgroundColor=`#333`;
+            input.style.color=`white`;
+            input.style.border="1px solid #777";
+            loginBtn.style.backgroundColor = "royalblue";
+            loginBtn.style.color = "white";
+        };
+
+        const lightMode = () => {
+            body.style.backgroundColor=`white`;
+            body.style.color=`black`;
+            loginBox.style.backgroundColor="#f5f5f5";
+            loginBox.style.border="1px solid #ccc";
+            loginBox.style.padding="20px";
+            loginBox.style.width = `300px`;
+            input.style.backgroundColor=`white`;
+            input.style.color=`black`;
+            input.style.border="1px solid #aaa";
+            loginBtn.style.backgroundColor = "black";
+            loginBtn.style.color = "white";            
+        };
+     </script>
+</body>
+</html>
