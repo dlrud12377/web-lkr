@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>구구단</h1>
+    단 : <input id="dan" type="text" placeholder="단 수를 입력하세요">
+    <button id="calcDan">계산시작</button>
+    <button id="hideAndReveal">보이기</button>
+    <hr>
+    <p id="screen"></p>
+    <script>
+
+        const dan = document.getElementById('dan');
+        const calcDan = document.getElementById('calcDan');
+        const hideAndReveal = document.getElementById('hideAndReveal');
+        const screen = document.getElementById('screen');
+        let visible = true;
+
+        calcDan.addEventListener("click", () => {
+            if (dan.value === ''){
+                alert("수를 입력해주세요");
+                return;
+            }
+
+            let danNum = Number(dan.value);
+
+            let html="";
+
+            for (let i=1; i<=9; i++){
+                html += danNum + " X " + i + " = " + (danNum * i) + "<br>";
+            }
+
+            screen.innerHTML = html;
+        });
+
+        hideAndReveal.addEventListener("click", () =>{
+
+            visible = !visible;
+
+            if (visible) {
+                screen.style.display = "block";
+            } else {
+                screen.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

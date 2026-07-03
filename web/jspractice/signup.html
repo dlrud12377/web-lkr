@@ -105,7 +105,7 @@
         <h3>아이디</h3>
         <div class="id-box">
             <input id="userId" type="text" placeholder="아이디 입력">
-            <button id="checkBtn" onclick="duplicateTest()">중복검사</button>
+            <button id="checkBtn">중복검사</button>
         </div>
         <p id="message"></p>
 
@@ -116,7 +116,6 @@
         <div class="email-box">
             <input id="emailId" type="email" placeholder="이메일 아이디"> @ 
             <select id="emailDomain">
-                <option>=== 선택 ===</option>
                 <option value="gmail.com">gmail.com</option>
                 <option value="naver.com">naver.com</option>
                 <option value="daum.net">daum.net</option>
@@ -131,6 +130,67 @@
 
         <script>
             let members = [];
+
+            members.push({
+                id : "user01",
+                pw: "1234",
+                email: "user01@gmail.com"
+            });
+
+            // 필요한 html 요소를 전부 읽어오기
+            const userId = document.getElementById("userId");
+            const userPw = document.getElementById("userPw");
+            const emailId = document.getElementById("emailId");
+            const emailDomain = document.getElementById("emailDomain");
+            const checkBtn = document.getElementById("checkBtn");
+            const joinBtn = document.getElementById("joinBtn");
+
+            const message = document.getElementById("message");
+            const memberList = document.getElementById("memberList");
+
+            checkBtn.addEventListener("click", () => {
+                // 1. 사용자가 입력한 값을 받아온다.
+                let id = userId.value;
+                if(id === "") {
+                        alert("아이디를 입력하세요");
+                        return;
+                    }
+                for (let member in members){
+                    if(member.id === id) {
+                        message.innerText = "이미 사용 중인 아이디입니다."
+                        message.style.color="red";
+                        return;
+                    }
+
+                    else{
+                        console.log(id);
+                        message.innerText = "사용 가능한 아이디입니다."
+                        message.style.color="green";
+                    }
+                }
+            });
+
+            // 회원가입 버튼을 눌렀을 때
+            joinBtn.addEventListener("click", () => {
+                let id = userId.value;
+                let pw = userPw.value;
+                let emailName = emailId.value;
+                let emailDomain = emailDomain.value;
+                let email = emailName + '@' + emailDomain;
+
+                for (let member in members){
+                    if(member.id === id) {
+                        alert("이미 가입된 회원입니다.")
+                        return;
+                    }
+                }
+                
+                if(id === '' || pw === '' || emailName === ''){
+                    alert("모든 항목을 입력하세요")
+                }
+
+            });
+        
         </script>
 
 

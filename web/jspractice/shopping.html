@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: Arial, sans-serif;
+        }
+
+        header{
+            display: flex;
+            justify-content: space-between;
+            background-color: black;
+            padding: 24px;
+            color: white;
+            align-items: center;
+        }
+
+        .header-title{
+            font-weight: 570;
+        }
+
+        .header-cart{
+            background-color: rgb(53, 53, 255);
+            padding: 8px 12px;
+            border-radius: 16px;
+            font-weight: 500;
+        }
+
+        .input-section{
+            display: flex;
+            gap: 12px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            justify-content: center;
+            justify-self: center;
+            min-width: 1200px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+        }
+    
+        .input-section__input{
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .input-section__type-selector{
+            width: 150px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .item-section{
+            width: 1200px;
+        }
+
+        .item__card-container{
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .item__card{
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+
+            transition: 0.3s;
+        }
+
+        .item__card:hover{
+            transform: translateY(-5px);
+        }
+        
+        .item__card-image{
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            overflow: hidden;
+        }
+
+        .item__card-text{
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-info h3{
+            margin: 0 0 8px;
+            font-size: 18px;
+        }
+
+        .brand{
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .price{
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .badge{
+            display: inline-block;
+            background-color: #dc2626;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 999px;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        button{
+            width: 100%;
+            border: none;
+            background-color: #111827;
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="header-title">Shop Dashboard</h1>
+        <span class="header-cart">장바구니 : 5개</span>
+    </header>
+    <main>
+        <section class="search-section">
+            <input id="input" class="input-section__input" type="text" placeholder="상품명 검색">
+            <select id="category" class="input-section__type-selector">
+                <option value="전체">전체 카테고리</option>
+                <option value="beauty">beauty</option>
+                <option value="fragrances">fragrances</option>
+                <option value="furniture">furniture</option>
+                <option value="groceries">groceries</option>
+            </select>
+        </section>
+
+        <section class="item-section">
+            <div id="cardContainer" class="item__card-container">
+
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let products = [];
+        let cartCount = 0;
+
+        const cardContainer = document.getElementById("cardContainer");
+        const input = document.getElementById("input");
+        const category = document.getElementById("category");
+        const cartCountSpan = document.getElementById("cartCount");
+
+        function loadProducts() {
+            productList.innerHtml = '<div class="message">상품 정보를 불러오는 중입니다...</div>';
+
+            fetch("https://dummyjson.com/products")
+            .then(response => response.json())
+            .then(datas => {
+                products = datas.products;
+                renderProducts();
+            })
+        }
+
+        function renderProducts() {
+                const keyword = searchInput.value;
+                const category = ;
+
+        }
+    </script>
+</body>
+</html>

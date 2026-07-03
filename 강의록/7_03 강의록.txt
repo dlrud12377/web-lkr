@@ -1,0 +1,52 @@
+함수
+자주 사용하는 코드들의 묶음
+
+function 함수명(매개변수) {...};
+
+함수명();
+
+화살표 함수
+
+(매개변수) => {...};
+
+매개변수가 없으면 소괄호 생략 불가능
+1개일 때 생략 가능
+2개일 때는 생략 불가능
+
+명령이 한 줄일때는 중괄호 생략 가능
+return이 있으면 키워드와 함께 중괄호 생략이 가능하다.
+
+** 객체 안에 들어가는 메서드는 화살표 함수를 쓰지 않는다.
+ → this 때문
+
+ ex.
+ let user = {
+	name : '홍길동',
+	sayHello(){
+		console.log(this.name);
+	}
+}
+
+user.sayHello(); // 객체의 name값을 가져오는 함수이니 홍길동이 나옴
+
+하지만 sayHello : () => {console.log(this.name)};
+
+일반함수의 this
+ - 누가 호출했는지를 보고 this를 결정한다.
+	→ 이렇게 화살표 함수를 사용하게 되면
+		- 자기만의 this가 없다
+		- 대신 바깥(this)을 그대로 가져온다.
+
+DOM 요소의 선택
+1. getElementById("아이디값") : 아이디를 이용한 선택
+
+2. querySelector("CSS 선택자") : CSS 선택자를 이용한 선택
+	ㄴ 중복되는 클래스값이 있으면 첫번째만 선택
+		→ 전부 선택하려면 querySelectorAll("CSS 선택자") 사용
+
+DOM 요소의 조작(이미 선택된 상태에서)
+1. attribute 조작하기
+ - hasAttribute() : 속성을 가지고 있는지 검사
+ - getAttribute() : 속성값을 반환
+ - setAttribute() : 속성을 세팅
+ - attributes : 태그가 가지고 있는 모든 속성을 가져온다.

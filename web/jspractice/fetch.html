@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">강아지</button>
+    <img id="photo" width="300px" alt="강아지 사진">
+
+    <hr>
+    <h2>음악 검색 하기</h2>
+    <!-- 검색어를 입력하고 검색버튼을 누르면 리스트로 5개를 불러오기 -->
+    <input type="text" id="musicInput" placeholder="제목이나 가수를 입력해주세요">
+    <button id="inputBtn">검색</button>
+    <div id="result"></div>
+    <script>
+        // let btn = document.getElementById("btn");
+        // let photo = document.getElementById("photo");
+        // btn.addEventListener("click", () => {
+        //     fetch("https://picsum.photos/v2/list?page=2&limit=100")
+        //     .then(response => {
+        //         if(!response.ok){
+        //             alert("정보를 불러오지 못했습니다.");
+        //             return;
+        //         }
+        //         return response.json();})
+        //     .then(data => {
+        //         // 0 ~ data.length-1 사이의 랜덤 번호 생성
+        //         const random = Math.floor(Math.random * data.length);
+
+        //         // 랜덤 이미지 출력하기
+        //         document.getElementById("photo").src = data[random].download_url;
+        //     });
+        // });
+
+        let input = document.getElementById("musicInput");
+        let inputBtn =  document.getElementById("inputBtn");
+        let result = document.getElementById("result");
+
+        inputBtn.addEventListener("click", () => {
+
+            let keyword = input.value.trim();
+
+            if (keyword === "") {
+                alert("검색어를 입력하세요.");
+                return;
+            }
+
+            fetch(`https://itunes.apple.com/search?term=${keyword}&entity=song&limit=5`)
+            .then(response => {
+                if(!response.ok){
+                    alert("정보를 불러오지 못했습니다.");
+                    return;
+                }
+                return response.json();
+            })
+            .then(datas => {
+            let html = "";
+            for (let data of datas.results){
+                html += `
+                <div>
+                    <p>제목 : ${data.trackName}</p>
+                    <p>가수 : ${data.artistName}</p>
+                    <hr>
+                </div>
+                `;
+            }
+
+            if (html == ""){
+                html = "검색 결과 없음";
+            }
+            result.innerHTML = html;
+            alert("검색 완료");
+            })
+        })
+    </script>
+</body>
+</html>
