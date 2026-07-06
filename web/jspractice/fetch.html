@@ -15,6 +15,19 @@
     <input type="text" id="musicInput" placeholder="제목이나 가수를 입력해주세요">
     <button id="inputBtn">검색</button>
     <div id="result"></div>
+
+
+    <hr>
+    <h2>http 상태 코드 확인하기</h2>
+    <button id="btn4">상태 확인하기</button>
+    <div id="result4"></div>
+    <div id="result5"></div>
+
+    <hr>
+    <h2>POST 요청하기</h2>
+    <input id="name" placeholder="이름 입력"><br>
+    <input id="email" placeholder="이메일 입력"><br>
+    <button id="btn5">추가하기</button>
     <script>
         // let btn = document.getElementById("btn");
         // let photo = document.getElementById("photo");
@@ -74,6 +87,55 @@
             result.innerHTML = html;
             alert("검색 완료");
             })
+        })
+
+        document.getElementById("btn4").addEventListener("click", () => {
+        
+            try{
+                fetch('https://jsonplaceholder.typicode.com/posts/1')
+                .then(response => {
+                    document.getElementById("result4").innerText = response.ok;
+                    if(!response.ok) {
+                        throw new Error("회원 정보를 불러오지 못했습니다.");
+                    }
+                })
+                .then(data => {
+                    console.log(data.title);
+                    document.getElementById("result5").innerText = data.title;
+                })
+            }
+            catch(error){
+
+            }
+        })
+
+
+        const btn5 = document.getElementById("btn5");
+
+        // 서버에 데이터를 보낼 때는 method, headers, body를 사용해야 한다.
+        document.getElementById("btn5").addEventListener("click", () => {
+            // input태그에 작성한 내용을 읽어와서 
+            // 객체로 만들기
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+
+
+            const member = {
+                name : name,
+                email : email
+            };
+
+            fetch("http://jsonplaceholder.typicode.com/users", {
+                method : "POST",
+                headers : {
+                    "Content-Type":"application/json"
+                },
+                body : JSON.stringify(member)
+            })
+            .then(response => response.json())
+            .then(data => console.log("등록 결과 : ", data));
+            // 여기서 data는 등록 결과 관련된 값을 보내줌. true/false를 주는건 아님
+
         })
     </script>
 </body>

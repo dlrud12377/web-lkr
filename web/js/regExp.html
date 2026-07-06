@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 정규표현식(regular-expression) : 문자열이 특정 규칙에 맞는지 검사하거나, 원하는 문자를 찾고 바꾸기 위한 표현식이다.
+
+        // 기본 형태
+        // /패턴/
+
+        let regex = /abc/; // 문자열 안에 abc가 있는지를 검사하는 패턴
+
+        // test() 메서드
+        // 문자열이 정규식에 맞는지 검사하는 메서드
+        // 정규식.test(문자열)
+        console.log(regex.test("abc")); // true
+        console.log(regex.test("abcd")); // true
+        console.log(regex.test("ab")); // false
+        console.log(regex.test("hello abc")); // tru함
+
+        // 숫자만 입력했는지 검사하는 정규식
+        regex = /^[0-9]+$/;
+        console.log(regex.test("12345"));
+        console.log(regex.test("123a"));
+        // console.log(regex.text("abc"));
+
+        // 영문 소문자와 숫자만 허용
+        // 5자 이상 12자 이하
+        regex = /^[\da-z]{5,12}$/;
+
+        // 이메일 정규식
+        regex = /^[a-zA-Z0-9._%+-]+@[a-z]+\.(com|net|org|co\.kr|io)$/;
+        console.log(regex.test("test@gmail.com"));
+        console.log(regex.test("user.name@naver.com"));
+        console.log(regex.test("user.name@navercom"));
+        console.log(regex.test("test@gmail.arg"));
+
+        // 휴대폰 번호 정규식
+        regex = /^010-[0-9]{3,4}-[0-9]{4}$/;
+
+        // 자주 쓰는 정규식 기호
+        // ^ : 문자열 시작 /^a/
+        // $ : 문자열 끝 /a$/
+        // . : 아무 문자 1개 /a.c/ -> axc, abc, avc 등등 가능
+        // [] : 문자 범위 /[abc]/ -> a, b, c 중 1글자
+        // [^] : 제외 /[^0-9]/ -> 숫자가 아니어야 함
+        // + : 1개 이상 /a+/ -> a, aa, aaa...
+        // * : 0개 이상 /ㅁ*/ -> 없어도 됨
+        // ? : 0 또는 1개 /a?/ -> 
+        // {n} : 정확히 n개 /[0-9]{3}/
+        // {n. m} : n개 이상 m개 이하 /[0-9]{2,4}/
+        // 0-9 : 0 ~ 9 사이 -> \d로 대체 가능
+        // a-z, A-Z : a ~ z, A ~ Z 사이
+        // 가-힇 : 가 ~ 힇 사이(한글 전체)
+        // /[a-zA-Z0-9]/ : 영어, 숫자 전부
+        // \w : 영문, 숫자, _ 포함
+    </script>
+</body>
+</html>
