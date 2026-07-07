@@ -64,6 +64,13 @@
             opacity: 0.7;
         }
 
+        .success{
+            color: rgb(19, 221, 19);
+        }
+
+        .fail{
+            color: red;
+        }
 
 
 
@@ -120,6 +127,58 @@
 
         // 사용할 정규식
         let regexId = /^[a-z0-9]{5,12}$/;
+        let regexPw = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,16}$/;
+        let regexEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+        let regexName = /^[가-힣]{2,5}$/;
+
+
+        // 체크 전체 호환 가능한 함수
+        function check(regex, value, msgElement, successMsg, failMsg){
+            if(!regex.test(value)){
+                msgElement.innerText = failMsg;
+                msgElement.classList.add("fail");
+                msgElement.classList.remove("success");
+                return;
+            }
+            msgElement.innerText = successMsg;
+            msgElement.classList.add("success");
+            msgElement.classList.remove("fail");
+        }
+
+        userId.addEventListener("input", () => {
+            check(regexId,
+                userId.value,
+                idResult,
+                "사용 가능한 아이디입니다.",
+                "아이디는 영문 소문자와 숫자만 사용하여 5~12자로 입력하세요.");
+        })
+
+        userPw.addEventListener("input", () => {
+            check(regexPw,
+                userPw.value,
+                pwResult,
+                "사용 가능한 비밀번호입니다.",
+                "비밀번호는 영문, 숫자, 특수문자를 포함하여 8~16자로 입력하세요"
+            );
+        })
+
+        email.addEventListener("input", () => {
+            check(regexEmail,
+                email.value,
+                emailResult,
+                "올바른 이메일 형식입니다.",
+                "이메일 형식이 올바르지 않습니다."
+            );
+        })
+
+        userName.addEventListener("input", () => {
+            check(regexName,
+                userName.value,
+                nameResult,
+                "올바른 이름입니다.",
+                "이름은 한글 2~5자로 입력하세요."
+            );
+        })
 
         joinBtn.addEventListener("click", () => {;
 
@@ -127,21 +186,7 @@
                 alert("모든 값을 입력해주세요");
                 return;
             }
-
-            checkId();
-
-            checkPw();
-
-            checkEmail();
-
-            checkName();
         });
-
-        function checkId(){
-            if(!regexId.test(userId.value)){
-
-            }
-        }
 
     </script>
 </body>

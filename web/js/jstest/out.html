@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="out.js" defer></script>
+    <link href="out.css" rel="stylesheet">
+    <!-- 과거에는 document 자체에 eventlistener를 걸어서 domcontentloaded를 사용했는데
+     요즘은 defer를 이용해서 해결이 가능
+     
+     ** defer : 브라우저에게 HTML을 모두 읽으 ㄴ뒤
+     이 JS 파일을 실행하라고 지시하는 기능 -->
+</head>
+<body>
+    <button onclick="hello()">클릭</button>
+    <button id="btn">이벤트리스너 버튼</button>
+
+</body>
+</html>
