@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="git.js" defer></script>
+    <link href="git.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 아이디 입력   input id="githubId"
+    검색 버튼   button id="searchBtn"
+    오류 메시지   p id="message"
+    결과 영역   div id="profileBox" -->
+    <div class="container">
+        <h1>GitHub 사용자 프로필 검색</h1>
+        <div class="search-section">
+            <input type="text" id="githubId" placeholder="아이디 입력">
+            <button id="searchBtn">검색</button>
+        </div>
+        <p id="message" class="unqualified"></p>
+        <div id="profileBox" class="card-container">
+            <!-- <div class="card">
+                <img alt="profile" class="card__image" src="../../img/bridge.jpg">
+                <div class="card__text">
+                    <h2>${id}</h2>
+                    <p><strong>이름 : </strong></p>
+                    <p><strong>소개 : </strong></p>
+                    <p><span>팔로워 수</span> <span>팔로잉 수</span> <span>공개 저장소</span></p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</body>
+</html>
