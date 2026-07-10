@@ -72,22 +72,27 @@ const searchGithubUser = async () => {
 
         const response = await fetch(url);
 
+        // 거절이 왔을 때 : 404
         if(response.status === 404){
             message.textContent = "존재하지 않는 사용자입니다.";
             message.className = "unqualified";
             return;
         }
 
+        // 거절이 왔을 때 : 403
         if(response.status === 403){
             message.textContent = "접근 권한이 없습니다.";
             message.className = "unqualified";
             return;
         }
 
+        // 응답 자체가 오지 않았을 때("API 통신 과정에서 문제가 생김")
         if(!response.ok){
             throw new Error("API 오류");
         }
 
+        // 오류, 거절이 진행되지 않았을 때 비동기 함수 
+        // 사용하여 response에서 정보를 json 형식으로 추출
         const user = await response.json();
 
         message.textContent = "";
