@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="student.js" defer></script>
+    <link href="student.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1> 수강생 등록 프로그램 </h1>
+        <p>수강생 정보를 등록하고 목록을 조회합니다.</p>
+        <div class="join-form">
+            <div class="form-group">
+                <label for = "name">이름</label>
+                <input type="text" id="name" placeholder="수강생 이름을 입력하세요">
+                <p id="nameMsg"></p>
+            </div>
+            <div class="form-group">
+                <label for = "course">과정명</label>
+                <select id="course">
+                    <option value="">과정 선택</option>
+                    <option value="스프링부트 개발">스프링부트 개발</option>
+                    <option value="자바 웹 개발">자바 웹 개발</option>
+                    <option value="클라우드 개발">클라우드 개발</option>
+                    <option value="프론트엔드 개발">프론트엔드 개발</option>
+                </select>
+                <p id="courseMsg"></p>
+            </div>
+            <div class="form-group">
+                <label for = "email">이메일</label>
+                <input type="email" id="email" placeholder="예: student@test.com">
+                <p id="emailMsg"></p>
+            </div>
+            <div class="button-group">
+                <button id="addBtn" class="add-btn">수강생 등록</button>
+                <button id="loadBtn" class="load-btn">목록 조회</button>
+            </div>
+        </div>
+        <div class="student-list">
+            <table>
+                <tbody id="studentList">
+                    <tr>
+                        <td colspan="4" class="empty">
+                            목록 조회버튼을 눌러주세요
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
