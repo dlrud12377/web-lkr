@@ -47,7 +47,11 @@ public class Chef {
 	
 	// 객체가 생성되는 순간 의존성이 함께 주입된다.
 	// 의존성이 없으면 객체를 만들 수 없다.
+	// 객체가 불변에 가깝게 설계된다.
+	// 스프링에서 가장 권장하는 방식이다.
 	
+// 생성자는 객체를 만들 때 호출 -> 스프링부트는 실행하면 객체를 만들어줌
+//	매개변수에 들어있는 변수들에게 주입
 //	public Chef(Knife knife, Pan pan, Oven oven, Pot pot) {
 //		this.knife = knife;
 //		this.pan = pan;

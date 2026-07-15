@@ -45,8 +45,11 @@ body{
 }
 
 .error{
-    font-size: 12px;
     color: red;
+}
+
+.success{
+    color: green;
 }
 
 label{
@@ -112,12 +115,25 @@ button:hover{
     background-color: rgb(204, 201, 252);
 }
 
-.student-list tr, td, th{
+.student-list{
+    width: 100%;
+}
+
+table{
+    width: 100%;
     border-collapse: collapse;
+}
+
+.student-list tr, td, th{
+    padding: 4px;
     text-align: center;
     border: 1px solid rgb(150, 147, 184);
 }
 
 .student-list th{
     background-color: rgb(204, 201, 252);
+}
+
+#nameMsg, #courseMsg, #emailMsg {
+    font-size: 14px;
 }

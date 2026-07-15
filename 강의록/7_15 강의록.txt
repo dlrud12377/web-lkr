@@ -1,0 +1,28 @@
+생성자 주입을 많이 사용함
+
+실제 프로젝트는 레이어드 아키텍처를 사용을 한다.
+
+표현 계층 : 사용자의 요청을 받고, 응답을 내보내는 계층
+	ㄴ Controller
+	@RestController(@Controller + @ResponseBody) - 자주 쓰임
+	@Controller
+
+요청이 들어왔을 때 클래스나 메서드를 매핑(연결)해주는 역할
+@RequestMapping("api")
+@GetMapping("users")
+@PostMapping
+
+@PathVariable() : 주소경로의 일부를 변수로 받는 것
+@RequestParam() : 쿼리스트링의 값을 받아오는 것
+
+컨트롤러는 서비스에 의존성을 가진다.
+
+서비스 계층 : 비즈니스로직을 실행하는 계층
+	ㄴ Service
+
+@Service
+
+메서드
+
+영속 계층 : 데이터베이스와 맞닿아있는 계층
+	ㄴ Repository

@@ -15,7 +15,7 @@ import com.korea.todo.entity.ToDoEntity;
 // 이런 경우 DTO에 에러 메시지 필드를 선언하고 DTO에 메시지를 넣어서 전달하면 된다.
 public class ToDoDTO {
 	
-	private String id;
+	private Long id;
 	private String title;
 	private boolean done;
 	
