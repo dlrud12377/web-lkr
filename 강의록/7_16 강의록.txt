@@ -1,0 +1,105 @@
+레이어드 아키텍쳐의 각 계층은 의존성을 통해 왔다갔다한다.
+
+표현계층 : controller
+
+dto
+
+서비스 계층 : service
+
+dto
+
+영속계층 : respository
+
+Entity(CRUD Process)
+
+데이터베이스 : Oracle, MySQL, H2
+
+
+Spring data JPA
+데이터베이스를 프로젝트에서 매우 편리하게 사용할 수 있게 해주는 기술
+
+JDBC만 사용해서 연결할 경우
+ - 개발자가 직접해야하는 일들이 너무 많다.
+ - 연결, 쿼리문도 직접 작성해야 한다. SQL 실행, 결과 받아서 JAVA 객체로 변환, 연결 종료
+
+ORM(Object Relation Mapping)
+객체와 관계를 매핑(1:1로 연결)
+
+Java는 데이터를 객체로 다룬다.
+DB는 데이터를 테이블로 관리
+
+JPA가 이 둘을 연결
+ - 내부적으로 SQL을 실행한다.
+ - 개발자가 SQL을 직접 작성하지 않고 객체 중심으로 데이터를 처리할 수 있다.
+
+Entity
+ - 테이블이랑 1대1로 매핑되는 클래스
+ - 클래스에 들어있는 필드 -> 테이블의 속성
+ - 테이블이 없으면 jpa 설정으로 자동으로 테이블을 만들어준다.
+
+ex) TodoEntity -> todo_entity라는 이름으로 테이블을 만든다.
+
+@Entity : 이 클래스는 JPA가 관리하는 데이터베이스 Entity라고 선언
+@Table(name=테이블명) : 테이블 이름을 명확하게 지정하고 싶으면 사용하는 어노테이션
+
+@id : 해당 필드를 기본키(PK)로 설정
+@GeneratedValue(strategy = GenerationType.IDENTITY) : 1부터 순차적으로 대입
+@Column() : 컬럼의 세부 설정
+ - name : 컬럼의 이름
+ - nullable : NULL 허용 여부
+ - unique : UNIQUE 제약조건
+ - length : 문자열의 길이
+
+@CreationTimeStamp
+private LocalDateTime createAt;
+
+@UpdateTimeStamp : Update 쿼리가 실행될 때 시간을 저장해준다.
+private LocalDateTime updatedAt;
+
+영속계층에서 메서드를 이용해서 CRUD작업 한다.
+
+JPA에서 기본적으로 제공하는 메서드를 사용하기 위해서는 JpaRepository<T, ID> 인터페이스를 상속받아야 한다.
+
+T : 엔티티 클래스
+ID : PK의 타입
+
+기본적으로 제공해주는 메서드
+save() : 추가나 업데이트 할 때 사용
+findById() : 기본키를 통해서 데이터 하나를 조회 / **반환형이 Optional(null or row 객체를 담고있는 포장지 객체)임**
+findAll() : Entity의 모든 데이터를 조회
+deleteById() : 기본키 ID를 기준으로 데이터를 삭제한다.
+count() : 해당 Entity의 전체 데이터 개수를 반환
+existsById() : 특정 ID의 데이터가 존재하는지 확인
+
+쿼리메서드 작성방법
+메서드 이름을 규칙에 맞게 작성하면 Spring Data JPA가 쿼리를 자동 생성합니다.
+
+ 1. 동작 + By + 조건
+	- List<T> findByTitle(String title) : 제목을 조건으로 데이터를 찾는다.
+
+	- findByTitleContaining(String keyword) : 제목에서 keyword를 포함하는 데이터 찾기(SQL문 like "~"와 같은 역할)
+
+ 2. 두 개의 조건
+	- findByUserIdAndDone(String userId, boolean done)
+
+	- findByUserIdOrTitle(String userId, String title)
+
+ 3. 특정 문자열로 검색
+
+	- 특정 문자열로 시작
+	findByTitleStartingWith(String str)
+
+	- 특정 문자열로 끝남
+	findByTitleEndingWith(String str)
+
+ 3. 범위
+	- 초과 : findByAgeGreaterThan(int age)
+
+	- 미만 : findByAgeLessThan(int age)
+
+	- 사이 : findByAgeBetween(int startAge, int endAge)
+
+ 4. 정렬
+	- findByUserIdOrderByAsc(String userId) - 유저 아이디를 통해 검색, 검색 결과 오름차순 정렬
+
+	- findByUserIdOrderByTitleAsc(String userId) - 유저 아이디를 통해 검색, 제목 사전순 정렬

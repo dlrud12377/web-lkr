@@ -1,0 +1,56 @@
+이름 인사 출력 프로그램
+사용자가 화면에 이름을 입력하고 버튼을 누르면, JS의 fetch()를 이용하여
+Springboot의 Controller로 이름을 전송한다.
+Controller는 전달받은 이름을 Service로 전달하고, Service는 인사 문장을 생성하여 Controller로 반환한다.
+Controller는 그 결과를 다시 브라우저에 반환한다.
+
+프로젝트 : com.korea.test
+
+브라우저에 나올 html ,js는 frontend라고 폴더 만들어서 작성하기
+
+요청주소 GET /api/hello?name=xxx
+
+controller : HelloController
+- public String hello();
+
+service : HelloService
+- public String getHelloMessage(String name)
+- 반환값은 안녕하세요, xxx님!
+
+HTML 작성 조건
+6-1. 제목
+이름 인사 프로그램
+
+6-2. 입력창
+<input
+    type="text"
+    id="nameInput"
+    placeholder="이름을 입력하세요">
+
+6-3. 버튼
+id: helloBtn
+텍스트: 인사하기
+
+6-4. 결과 영역
+<p id="result"></p>
+
+JavaScript 작성 조건
+
+7-1. 요소 가져오기
+nameInput
+helloBtn
+result
+
+7-2. 입력값 처리
+const name = nameInput.value.trim();
+
+7-3. 입력값 검사
+이름을 입력하세요.
+
+7-4. fetch 요청
+fetch(
+    "/api/hello?name="
+    + encodeURIComponent(name)
+)
+7-5. 응답 처리
+response.text()
