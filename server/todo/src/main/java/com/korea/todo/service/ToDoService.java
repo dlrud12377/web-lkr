@@ -1,11 +1,18 @@
 package com.korea.todo.service;
 
+import java.util.List;
+import java.util.Optional;
+
+import javax.management.RuntimeErrorException;
+
 import org.springframework.stereotype.Service;
 
+import com.korea.todo.DTO.ToDoDTO;
 import com.korea.todo.entity.ToDoEntity;
 import com.korea.todo.repository.TodoRepository;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 // 비즈니스 계층
 // 표현계층과 영속계층 사이에서 비즈니스 로직을 수행하는 역할을 한다.
@@ -14,6 +21,12 @@ import lombok.RequiredArgsConstructor;
 
 @Service // 스프링 bean으로 등록되어 다른 클래스에 주입될 수 있다.
 @RequiredArgsConstructor
+@Slf4j // 롬복에서 온 로그를 사용할 수 있게 해주는 어노테이션
+//trace : 가장 상세한 실행 정보
+//debug : 개발 및 디버깅 정보
+//info : 일반적인 실행 정보
+//warn : 경고 상황
+//error : 오류 상황
 public class ToDoService {
 
 	private final TodoRepository repository;
@@ -49,5 +62,81 @@ public class ToDoService {
 		
 		
 		return savedEntity.getTitle();
+	}
+	
+	// 할일 추가
+	// 1. 넘어온 엔티티가 유효한지 검사
+	// 2. 엔티티를 데이터베이스에 저장 -> 로그를 남긴다.
+	// 3. findByUserId()를 통해 저장된 엔티티를 포함하는 새 리스트를 반환
+	public List<ToDoEntity> create(final ToDoEntity entity) {
+		
+		validate(entity);
+		
+		//전달된 entity를 데이터베이스에 저장한다.
+		repository.save(entity);
+		log.info("Entity Id : {} is saved", entity.getId());
+		
+		return repository.findByUserId(entity.getUserId());
+	}
+	
+	// 전체 조회
+	// retrieve메서드 만들기
+	public List<ToDoDTO> retrieve(){
+    	
+    	List<ToDoEntity> entityList = repository.findAll();
+    	
+    	return entityList.stream().map(ToDoDTO::new).toList();
+	}
+	
+	private void validate(ToDoEntity entity) {
+		// null인지 확인
+		if(entity == null) {
+			throw new RuntimeException("엔티티의 값이 null입니다.");
+		}
+		
+		// entity의 userId 값이 들어있는지 확인
+		if(entity.getUserId() == null) {
+			throw new RuntimeException("존재하지 않는 유저입니다.");
+		}
+
+	}
+	
+	
+	// 수정하기
+	// update
+	// findById로 찾고, 찾은 엔티티 값 수정 후 다시 전달
+	public List<ToDoEntity> update(ToDoEntity entity){
+		validate(entity);
+		
+		// 넘겨받은 엔티티 id를 통해 ToDoEntity 한 개를 가져온다.
+		// 존재하지 않는 엔티티는 수정할 수 없기 때문이다.
+		Optional<ToDoEntity> original = repository.findById(entity.getId());
+		
+		original.ifPresent(todo -> {
+			// 반환된 TodoEntity가 존재하면 값을 새 Entity값으로 덮어씌운다.
+			todo.setTitle(entity.getTitle());
+			todo.setDone(entity.isDone());
+			
+			// 수정된 내용을 담은 todo를 다시 데이터베이스에 넣는다.
+			repository.save(todo);
+		});
+		
+		// 수정된 데이터를 반영한 전체조회
+		return repository.findAll();
+	}
+	
+	public List<ToDoEntity> delete(ToDoEntity entity){
+		validate(entity);
+		
+		try {
+			repository.delete(entity);
+		}
+		catch (Exception e) {
+			log.error("Error deleting Entity", entity.getId(), e);
+			
+			throw new RuntimeException("Error deleting Entity" + entity.getId());
+		}
+		
+		return retrieve(entity.getUserId());
 	}
 }

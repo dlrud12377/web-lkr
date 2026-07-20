@@ -1,0 +1,74 @@
+package com.korea.todo.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.korea.todo.DTO.ResponseDTO;
+import com.korea.todo.DTO.UserDTO;
+import com.korea.todo.entity.UserEntity;
+import com.korea.todo.service.UserService;
+
+import lombok.Builder;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
+@Data
+@Builder
+@RequiredArgsConstructor
+@RestController
+@RequestMapping("/auth")
+public class UserController {
+
+	private final UserService userService;
+	
+	// 회원가입
+	// 경로 : /signup
+	// 메서드 : registerUser
+	// 요청으로부터 넘어온 내용을 받아서 데이터베이스에 추가하고, 저장된 내용 ResponseDTO에 담아서 반환하기
+	@PostMapping("/signup")
+	private ResponseEntity<?> registerUser(@RequestBody UserDTO dto){
+		try {
+			UserEntity user = UserEntity.builder()
+					.username(dto.getUsername())
+					.id(dto.getId())
+					.password(dto.getPassword())
+					.build();
+			
+			UserEntity registeredUser = userService.create(user);
+			
+			UserDTO responseUserDTO = UserDTO.builder()
+					.id(registeredUser.getId())
+					.username(registeredUser.getUsername())
+					.password(registeredUser.getPassword())
+					.build();
+			
+			return ResponseEntity.ok().body(responseUserDTO);
+		}catch (Exception e) {
+			
+			String message = e.getMessage();
+			
+			ResponseDTO response = ResponseDTO.builder()
+					.error(message)
+					.build();
+			
+			return ResponseEntity.badRequest().body(response);
+		}
+	}
+	
+	// 로그인하기
+	// 경로 POST /signin
+	// 메서드명 authenticate
+	// 입력받은 아이디와 비밀번호를 받아서 검증하고 조회된 유저를 반환
+	@PostMapping("/signin")
+	private ResponseEntity<?> authenticate(@RequestBody UserDTO dto){
+		
+		
+		return null;
+	}
+	
+}

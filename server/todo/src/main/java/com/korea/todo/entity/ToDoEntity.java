@@ -27,5 +27,4 @@ public class ToDoEntity {
 	private String title; // 할 일
 	private boolean done; // 완료 여부
 	
-	
 }

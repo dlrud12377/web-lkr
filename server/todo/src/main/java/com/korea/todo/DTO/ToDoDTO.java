@@ -2,6 +2,12 @@ package com.korea.todo.DTO;
 
 import com.korea.todo.entity.ToDoEntity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 // 서비스가 요청을 처리하고 클라이언트로 반환할 때, Entity 자체를 반환하는 경우는 많이 없음
 // 보통은 데이터를 전달하기 위해 사용하는 객체인 DTO로 변환해 반환한다.
 // DTO로 변환하여 반환하는 이유
@@ -13,6 +19,11 @@ import com.korea.todo.entity.ToDoEntity;
 // 만약 서비스 실행 도중 유저 에러가 나면 에러 메시지를 어디에 포함할것인가
 // Entity에는 서비스 로직과 관련이 없기 때문에 다른 내용을 담기가 애매하다
 // 이런 경우 DTO에 에러 메시지 필드를 선언하고 DTO에 메시지를 넣어서 전달하면 된다.
+@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ToDoDTO {
 	
 	private Long id;
@@ -25,5 +36,17 @@ public class ToDoDTO {
 		this.id = entity.getId();
 		this.title = entity.getTitle();
 		this.done = entity.isDone();
+	}
+	
+	
+	// DTO타입을 Entity 타입으로 바꾸는 toEntity 메서드 작성하기
+	// static으로 만들기
+	
+	public static ToDoEntity toEntity(ToDoDTO dto) {
+		return ToDoEntity.builder()
+				.id(dto.getId())
+				.title(dto.getTitle())
+				.done(dto.isDone())
+				.build();
 	}
 }

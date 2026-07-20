@@ -30,5 +30,7 @@ public interface TodoRepository extends JpaRepository<ToDoEntity, Long> {
 	// SELECT * FROM todo WHERE userid = ?1
 	@Query("Select t from ToDoEntity t WHERE t.userId = ?1")
 	List<ToDoEntity> findByUserIdQuery(Long userId);
+	
+	List<ToDoEntity> findByUserId(String UserId);
 
 }
