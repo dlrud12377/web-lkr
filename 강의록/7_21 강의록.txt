@@ -139,5 +139,44 @@ JJWT-GSON : JWT의 JSON 직렬화/역직렬화를 Gson으로 처리
 스프링 시큐리티는 여러개의 필터를 순서대로 연결하여 사용할 수 있다.
 연결된 필터를 필터체인이라고 부른다.
 
+ < OncePerRequestFilter >
+ - HTTP 요청 1번당 필터 로직이 한 번만 실행되도록 도와주는 Spring 필터 기반 클래스
+ 관련 메서드
+	- doFilterInternal() : HTTP 요청이 들어오면 이 필터가 실행이 되고 커스텀 필터를 만들 때 필터 처리 로직을 작성하는 메서드
+ 		→ 현재 요청에 포함된 토큰을 확인하여 사용자를 인증된 사용자로 등록하는 역할을 한다.
+
+ - HttpServletRequest request : 클라이언트가 보낸 HTTP 요청 정보(토큰을 꺼낼 수 있음)
+ - HttpServletResponse response : 클라이언트에게 보낼 HTTP 응답 정보
+ - FilterChain filterChain : 다음 필더로 요청을 전달하는 객체
+
+클라이언트 쪽에서 fetch()로 요청을 보낼 때 header에 토큰을 실어서 보낸다.
+
+fetch("요청주소", {
+	method : "GET",
+	headers : {
+		"Content-type" : "application/json", 
+		"Authorization" : "Bearer " + 토큰
+			}
+});
+	
+StringUtils.hasText(bearerToken) : 문자열 유효성 검증 메서드
+ - null값인지 확인
+ - "" 빈 문자열인지 확인
+ - 공백만 있는지 확인
+ - 실제 문자열이 있는지 확인
+
+1. 아이디와 비밀번호를 입력하고 로그인
+2. 토큰을 발급받는다.
+3. 할 일에 대한 추가/수정/조회/삭제 기능 요청(요청과 함께 토큰을 같이 보낸다.)
+4. 필터에서 검증(아이디 뽑아오기)
+5. 컨트롤러의 매개변수에 넣는다.
+6. DB에서 전달 / 비교해서 응답을 만든다.
+
+hello2@world.com 아이디 만들기
+
+hello2@world.com을 이용해 할일 추가하기
+hello2@world.com을 이용해 할일 추가하기
+조회 했을 때 각자 추가한 할일만 보이는지  확인하기
+
  회원가입
  로그인
