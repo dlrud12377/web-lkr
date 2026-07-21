@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -57,7 +58,7 @@ public class ToDoController {
 	// 비즈니스 로직을 실행하고 난 결과를 받아온다.
 	// 응답으로 내보낸다.
 	@PostMapping
-	public ResponseEntity<?> createTodo(@RequestBody ToDoDTO dto) {
+	public ResponseEntity<?> createTodo(@AuthenticationPrincipal String userId, @RequestBody ToDoDTO dto) {
 		try {
 			// 임시 유저 만들기(UserId 검사용)
 			String temporaryUserId = "temporary-user"; // 임시 유저 아이디

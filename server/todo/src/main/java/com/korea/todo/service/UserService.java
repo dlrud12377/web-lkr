@@ -34,5 +34,12 @@ public class UserService {
 		return repository.save(user);
 		
 	}
+
+	// 로그인
+	public UserEntity getByCredentials(String username, String password) {
+		return repository.findByUsernameAndPassword(username, password); // 이름과 패스워드가 일치하는 엔티티 반환
+	}
+	
+	
 	
 }
