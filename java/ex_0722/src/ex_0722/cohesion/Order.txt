@@ -1,0 +1,7 @@
+Calculator : 기능적 응집도
+GameLuncher : 절차적 응집도
+PrinterManager : 논리적 응집도
+SalesReporter : 통신적 응집도
+SystemExitManager : 시간적 응집도
+TextProcess : 순차적 응집도
+BadRandomUtils : 우연적 응집도
