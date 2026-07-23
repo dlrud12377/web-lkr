@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="petclinic.css" rel="stylesheet">
+    <script src="petclinic.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>반려동물 진료 예약 관리</h1>
+        <div class="registration-box">
+            <h2>예약 등록</h2>
+            <div class="join-form">
+                <label for="petName">반려동물 이름</label>
+                <input id="petName" type="text" placeholder="반려동물 이름">
+            </div>
+
+            <div class="join-form">
+                <label for="ownerName">보호자 이름</label>
+                <input id="ownerName" type="text" placeholder="보호자 이름">
+            </div>
+
+            <div class="join-form">
+                <label for="animalType">동물 종류</label>
+                <select id="animalType">
+                    <option value="">선택</option>
+                    <option value="dog">강아지</option>
+                    <option value="cat">고양이</option>
+                    <option value="hamster">햄스터</option>
+                </select>
+            </div>
+
+            <div class="join-form">
+                <label for="doctorName">담당 수의사</label>
+                <input id="doctorName" type="text" placeholder="담당 수의사">
+            </div>
+
+            <div class="join-form">
+                <label for="reservationDate">예약 날짜</label>
+                <input id="reservationDate" type="date">
+            </div>
+
+            <div class="join-form">
+                <label for="reservationStatus">예약 상태</label>
+                <select id="reservationStatus" type="text" placeholder="반려동물 이름">
+                    <option value="">선택</option>
+                    <option value="reserved">예약</option>
+                    <option value="done">진료완료</option>
+                    <option value="canceled">예약취소</option>
+                </select>
+            </div>
+
+            <div class="join-form">
+                <label for="expectedCost">예상 진료비</label>
+                <input id="expectedCost" type="text" placeholder="반려동물 이름">
+            </div>
+
+            <div class="btn-group">
+                <button id="saveBtn"></button>
+                <button id="cencelBtn"></button>
+            </div>
+        </div>
+
+        <table>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
