@@ -107,3 +107,20 @@ SELECT : VO, List<VO>
 INSERT : INT
 UPDATE : INT
 DELETE : INT
+
+<if>
+ - 조건이 참일 때만 SQL 문장을 추가하는 문법
+
+<if test="name != null">
+	AND name=#{name}
+</if>
+
+<where>
+ - 조건이 존재할 때 자동으로 where을 붙여주는 태그
+
+<choose></choose> : 여러 조건 중 하나를 선택하는 전체 영역
+
+<when></when> : 조건을 검사
+
+<otherwise></otherwise> : 모든 <when>조건이 거짓일 때 실행
+

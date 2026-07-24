@@ -10,7 +10,7 @@
 	resultType : SQL 실행해서 조회된 결과를 어떤 JAVA 객체에 담을 것인지 지정 -->
 	<select id="findAll" resultType="ReservationVO">
 		SELECT * FROM reservation
-		</select>
+	</select>
 	
 	<!-- id를 통한 단건 조회 -->
 	<select id="findById" resultType="ReservationVO">
@@ -28,11 +28,11 @@
 			status,
 			price)
 		VALUES(
-			#{pet_name},
-			#{owner_name},
-			#{animal_type},
-			#{doctor_name},
-			#{reservation_date},
+			#{petName},
+			#{ownerName},
+			#{animalType},
+			#{doctorName},
+			#{reservationDate},
 			#{status},
 			#{price})
 	</insert>
@@ -41,11 +41,11 @@
 	<update id="update">
 		UPDATE reservation
 		SET 
-			pet_name = #{pet_name},
-			owner_name = #{owner_name},
-			animal_type = #{animal_type},
-			doctor_name = #{doctor_name},
-			reservation_date = #{reservation_date},
+			pet_name = #{petName},
+			owner_name = #{ownerName},
+			animal_type = #{animalType},
+			doctor_name = #{doctorName},
+			reservation_date = #{reservationDate},
 			status = #{status},
 			price = #{price}
 		where id=#{id}
@@ -98,8 +98,13 @@
 	
 	<!-- 예약 상태별 예약 수 조회 -->
 	<select id="countByStatus" resultType="ReservationStatusCountVO">
-		SELECT COUNT(*) as count, category FROM reservation
+		SELECT COUNT(*) as count, status FROM reservation
 		GROUP BY status
+	</select>
+	
+	<!-- 예약진료비 총합 구하기 -->
+	<select id="totalPrice" resultType="Integer">
+		SELECT SUM(price) FROM reservation
 	</select>
 	
 </mapper>

@@ -22,7 +22,9 @@ public interface ReservationDAO {
 	
 	List<ReservationVO> findByTypeAndKeyword(@Param("searchType") String searchType, @Param("keyword") String keyword);
 
-	List<ReservationVO> findAllOrder(String order);
+	List<ReservationVO> findAllOrder(@Param("sort") String sort);
 	
 	List<ReservationStatusCountVO> countByStatus();
+
+	int totalPrice();
 }

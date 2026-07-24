@@ -42,12 +42,16 @@ public class ReservationService {
 		return reservationDAO.findByTypeAndKeyword(searchType, keyword);
 	}
 
-	public List<ReservationVO> findAllOrder(@Param("sort") String order) {
-		return reservationDAO.findAllOrder(order);
+	public List<ReservationVO> findAllOrder(@Param("sort") String sort) {
+		return reservationDAO.findAllOrder(sort);
 	}
 
 	public List<ReservationStatusCountVO> countByStatus() {
 		return reservationDAO.countByStatus();
+	}
+
+	public int totalPrice() {
+		return reservationDAO.totalPrice();
 	}
 
 }

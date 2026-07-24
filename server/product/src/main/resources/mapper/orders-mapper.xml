@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace : 현재 Mapper XML이 어떤 Java 인터페이스와 연결되는지 지정 -->  
+<mapper namespace="com.korea.product.dao.OrdersDAO">
+
+	<!-- 결제 내역 조회 -->
+	<select id="findAll" resultType="OrdersVO">
+		SELECT * FROM orders
+	</select>
+	
+	<!-- 결제 등록 -->
+	<insert id="insert">
+		INSERT INTO orders(
+			product_id,
+			product_count)
+		VALUES(
+			#{productId},
+			#{productCount})
+	</insert>
+</mapper>
