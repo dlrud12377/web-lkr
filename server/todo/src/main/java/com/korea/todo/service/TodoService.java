@@ -7,8 +7,8 @@ import javax.management.RuntimeErrorException;
 
 import org.springframework.stereotype.Service;
 
-import com.korea.todo.DTO.ToDoDTO;
-import com.korea.todo.entity.ToDoEntity;
+import com.korea.todo.dto.TodoDTO;
+import com.korea.todo.entity.TodoEntity;
 import com.korea.todo.repository.TodoRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -27,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 //info : 일반적인 실행 정보
 //warn : 경고 상황
 //error : 오류 상황
-public class ToDoService {
+public class TodoService {
 
 	private final TodoRepository repository;
 	
@@ -36,14 +36,14 @@ public class ToDoService {
 	public String testService() {
 		
 		// 엔티티 생성
-		ToDoEntity entity = ToDoEntity.builder().title("My first todo item").build();
+		TodoEntity entity = TodoEntity.builder().title("My first todo item").build();
 		
 		
 		// TodoEntity 저장
 		repository.save(entity);
 		
 		// TodoEntity 검색
-		ToDoEntity savedEntity = repository.findById(entity.getId()).get(); // findById까지의 결과는 Optional 객체 -> get() 메서드로 한번더 꺼내야됨
+		TodoEntity savedEntity = repository.findById(entity.getId()).get(); // findById까지의 결과는 Optional 객체 -> get() 메서드로 한번더 꺼내야됨
 		
 		// Optional
 		// Java 8에서 도입된 클래스로, null값을 안전하게 처리하기 위한 용도로 사용이 된다.
@@ -68,7 +68,7 @@ public class ToDoService {
 	// 1. 넘어온 엔티티가 유효한지 검사
 	// 2. 엔티티를 데이터베이스에 저장 -> 로그를 남긴다.
 	// 3. findByUserId()를 통해 저장된 엔티티를 포함하는 새 리스트를 반환
-	public List<ToDoEntity> create(final ToDoEntity entity) {
+	public List<TodoEntity> create(final TodoEntity entity) {
 		
 		validate(entity);
 		
@@ -81,36 +81,40 @@ public class ToDoService {
 	
 	// 전체 조회
 	// retrieve메서드 만들기
-	public List<ToDoDTO> retrieve(){
-    	
-    	List<ToDoEntity> entityList = repository.findAll();
-    	
-    	return entityList.stream().map(ToDoDTO::new).toList();
-	}
+//	public List<TodoDTO> retrieve(){
+//    	
+//    	List<TodoEntity> entityList = repository.findAll();
+//    	
+//    	return entityList.stream().map(TodoDTO::new).toList();
+//	}
+//	
+//	private void validate(TodoEntity entity) {
+//		// null인지 확인
+//		if(entity == null) {
+//			throw new RuntimeException("엔티티의 값이 null입니다.");
+//		}
+//		
+//		// entity의 userId 값이 들어있는지 확인
+//		if(entity.getUserId() == null) {
+//			throw new RuntimeException("존재하지 않는 유저입니다.");
+//		}
+//
+//	}
 	
-	private void validate(ToDoEntity entity) {
-		// null인지 확인
-		if(entity == null) {
-			throw new RuntimeException("엔티티의 값이 null입니다.");
-		}
-		
-		// entity의 userId 값이 들어있는지 확인
-		if(entity.getUserId() == null) {
-			throw new RuntimeException("존재하지 않는 유저입니다.");
-		}
-
+	public List<TodoEntity> retrieve(String temporaryUserId) {
+		return repository.findByUserId(temporaryUserId);
 	}
 	
 	
 	// 수정하기
 	// update
 	// findById로 찾고, 찾은 엔티티 값 수정 후 다시 전달
-	public List<ToDoEntity> update(ToDoEntity entity){
+	public List<TodoEntity> update(TodoEntity entity){
 		validate(entity);
 		
 		// 넘겨받은 엔티티 id를 통해 ToDoEntity 한 개를 가져온다.
 		// 존재하지 않는 엔티티는 수정할 수 없기 때문이다.
-		Optional<ToDoEntity> original = repository.findById(entity.getId());
+		Optional<TodoEntity> original = repository.findById(entity.getId());
 		
 		original.ifPresent(todo -> {
 			// 반환된 TodoEntity가 존재하면 값을 새 Entity값으로 덮어씌운다.
@@ -125,7 +129,7 @@ public class ToDoService {
 		return repository.findAll();
 	}
 	
-	public List<ToDoEntity> delete(ToDoEntity entity){
+	public List<TodoEntity> delete(TodoEntity entity){
 		validate(entity);
 		
 		try {
@@ -138,5 +142,20 @@ public class ToDoService {
 		}
 		
 		return retrieve(entity.getUserId());
+	}
+	
+	
+	private void validate(TodoEntity entity) {
+		//null인지 확인
+		if(entity == null) {
+			log.warn("Entity cannot be null");
+			throw new RuntimeException("Entity cannot be null");
+		}
+		
+		//entity의 userId값이 들어있는지 확인
+		if(entity.getUserId() == null) {
+			log.warn("Unknown user");
+			throw new RuntimeException("Unknown user");
+		}
 	}
 }

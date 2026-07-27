@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.korea.todo.entity.ToDoEntity;
+import com.korea.todo.entity.TodoEntity;
 
 @Repository
 // 주로 데이터베이스와 상호작용하는 클래스에서 사용되며, CRUD와 같은 데이터베이스 작업을 처리하는데 사용된다
@@ -17,7 +17,7 @@ import com.korea.todo.entity.ToDoEntity;
 // 이 인터페이스는 CRUD 기능과 페이징, 정렬같은 데이터 처리 기능을 기본적으로 제공한다.
 // T : 엔티티 클래스(데이터베이스 테이블과 Mapping되는 클래스)
 // ID : 엔티티 클래스의 기본 키 타입을 의미한다.
-public interface TodoRepository extends JpaRepository<ToDoEntity, Long> {
+public interface TodoRepository extends JpaRepository<TodoEntity, Long> {
 	
 	// 주요 메서드
 	// save(S entity) : 엔티티를 데이터베이스에 저장하거나 업데이트한다.
@@ -29,8 +29,8 @@ public interface TodoRepository extends JpaRepository<ToDoEntity, Long> {
 	
 	// SELECT * FROM todo WHERE userid = ?1
 	@Query("Select t from ToDoEntity t WHERE t.userId = ?1")
-	List<ToDoEntity> findByUserIdQuery(Long userId);
+	List<TodoEntity> findByUserIdQuery(Long userId);
 	
-	List<ToDoEntity> findByUserId(String UserId);
+	List<TodoEntity> findByUserId(String UserId);
 
 }

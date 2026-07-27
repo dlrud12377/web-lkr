@@ -1,6 +1,6 @@
-package com.korea.todo.DTO;
+package com.korea.todo.dto;
 
-import com.korea.todo.entity.ToDoEntity;
+import com.korea.todo.entity.TodoEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +24,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ToDoDTO {
+public class TodoDTO {
 	
 	private Long id;
 	private String title;
@@ -32,7 +32,7 @@ public class ToDoDTO {
 	
 	// 사용자의 요청을 받아서 데이터들을 DTO 객체에 넣는다.
 	// DB에 전달할 때는 무조건 Entity 타입이어야 한다.
-	public ToDoDTO(final ToDoEntity entity) {
+	public TodoDTO(final TodoEntity entity) {
 		this.id = entity.getId();
 		this.title = entity.getTitle();
 		this.done = entity.isDone();
@@ -42,8 +42,8 @@ public class ToDoDTO {
 	// DTO타입을 Entity 타입으로 바꾸는 toEntity 메서드 작성하기
 	// static으로 만들기
 	
-	public static ToDoEntity toEntity(ToDoDTO dto) {
-		return ToDoEntity.builder()
+	public static TodoEntity toEntity(TodoDTO dto) {
+		return TodoEntity.builder()
 				.id(dto.getId())
 				.title(dto.getTitle())
 				.done(dto.isDone())

@@ -1,4 +1,4 @@
-package com.korea.todo.DTO;
+package com.korea.todo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

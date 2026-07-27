@@ -3,6 +3,7 @@ package com.korea.petclinic.controller;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,8 +34,23 @@ public class ReservationController {
 	}
 	
 	@GetMapping("{id}")
-	public ReservationVO findById(@PathVariable Long id) {
-		return reservationService.findById(id);
+	public ResponseEntity<?> findById(@PathVariable Long id) {		 
+		 try {
+			 
+			 ReservationVO reservation = reservationService.findById(id);
+			 
+			 if(reservation != null) {
+				 return ResponseEntity.ok().body(reservation);
+			 }
+			 else {
+				throw new Exception("일치하는 예약 정보가 없습니다.");
+			 }
+			
+		} catch (Exception e) {
+			String msg = e.getMessage();
+			System.out.println(e);
+			return ResponseEntity.badRequest().body(e);
+		}
 	}
 	
 	@PostMapping
@@ -56,12 +72,13 @@ public class ReservationController {
 	}
 	
 	@GetMapping("/search-detail")
-	public List<ReservationVO> findByTypeAndKeyword(@Param("searchType") String searchType, @Param("keyword") String keyword){
+	public List<ReservationVO> findByTypeAndKeyword(@RequestParam String searchType, @RequestParam String keyword){
 		return reservationService.findByTypeAndKeyword(searchType, keyword);
 	}
 	
 	@GetMapping("/sort")
-	public List<ReservationVO> findAllOrder(@RequestParam(required=false) String sort){
+	public List<ReservationVO> findAllOrder(@RequestParam(required=false) String sort){ 
+		// parameter를 입력하지 않아도 xml mapper에 otherwise 영역이 있어서 실행이 가능하다면 required=false가 가능하다
 		return reservationService.findAllOrder(sort);
 	}
 	
